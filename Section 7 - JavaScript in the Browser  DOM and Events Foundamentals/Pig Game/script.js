@@ -7,6 +7,7 @@ const player1 = document.querySelector('.player--1');
 const score0El = document.querySelector('#score--0');
 const score1El = document.getElementById('score--1'); //we dont need - #
 const diceEl = document.querySelector('.dice');
+
 const currentScore0 = document.getElementById('current--0');
 const currentScore1 = document.getElementById('current--1');
 
@@ -23,6 +24,8 @@ const switchPlayer = function () {
   player0.classList.toggle('player--active'); //toggle  - switch on/off
   player1.classList.toggle('player--active');
 };
+
+
 let scores, currentScoreNew, activePlayer, plaing;
 
 // initialiation
