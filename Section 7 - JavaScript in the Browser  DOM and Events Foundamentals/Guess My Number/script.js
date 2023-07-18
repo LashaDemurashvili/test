@@ -19,18 +19,23 @@ const updateContent = (class_name, text_content) => {
     }
 };
 
+// constant arrow function for focus mouse cursor
+// make default value as -> guess
+const focus =  (input_name='guess') => {
+    document.querySelector(`.${input_name}`).focus();
+}
+
 // main brain - use onclick()
 const checkFunc = function () {
     const guessNumber = Number(document.querySelector('.guess').value);
 
     if (arrIncorrectNums.includes(guessNumber)) {
         alert("Please choose different numbers, you already choose this one which wasn't correct !!!");
+        focus()
     } else if (guessNumber <= 0 || guessNumber > 20) {
         alert('Please choose number between 1 to 20');
+        focus()
     } else {
-        // add incorrect guess number to the array
-        arrIncorrectNums.push(guessNumber);
-
         // if input is empty
         if (!guessNumber) {
             updateContent('message', '⛔ No number!');
@@ -51,6 +56,10 @@ const checkFunc = function () {
 
         // guess is wrong
         else if (guessNumber !== secretNumber) {
+            // add incorrect guess number to the array
+            arrIncorrectNums.push(guessNumber);
+            console.log(arrIncorrectNums)
+
             if (score > 1) {
                 score--;
                 updateContent('score', score);
@@ -59,7 +68,7 @@ const checkFunc = function () {
                 guessNumber < secretNumber ? updateContent('message', '📉 Too low!')
                     : updateContent('message', '📈 Too high!');
 
-                document.querySelector('.guess').focus(); // focus mouse cursor
+                focus()
             } else {
                 updateContent('message', '💥 You lost the game!');
                 document.querySelector('.score').textContent = 0;
@@ -82,7 +91,7 @@ document.querySelector('.again').addEventListener('click', function () {
 
     updateContent('message', 'Start guessing...');
     document.querySelector('.guess').value = '';
-    document.querySelector('.guess').focus();
+    focus()
 
     // clear array
     arrIncorrectNums = [];
