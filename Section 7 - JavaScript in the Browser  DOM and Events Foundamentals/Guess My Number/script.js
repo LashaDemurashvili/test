@@ -19,17 +19,17 @@ const updateContent = (class_name, text_content) => {
     }
 };
 
-// main brain
-document.querySelector('.check').addEventListener('click', function () {
+// main brain - use onclick()
+const checkFunc = function () {
     const guessNumber = Number(document.querySelector('.guess').value);
 
     if (arrIncorrectNums.includes(guessNumber)) {
-        alert("Please choose different numbers, you already choose this one which wasn't correct !!!")
-    } else if(guessNumber <= 0 || guessNumber > 20){
-        alert('Please choose number between 1 to 20')
-    }else {
+        alert("Please choose different numbers, you already choose this one which wasn't correct !!!");
+    } else if (guessNumber <= 0 || guessNumber > 20) {
+        alert('Please choose number between 1 to 20');
+    } else {
         // add incorrect guess number to the array
-        arrIncorrectNums.push(guessNumber)
+        arrIncorrectNums.push(guessNumber);
 
         // if input is empty
         if (!guessNumber) {
@@ -66,8 +66,9 @@ document.querySelector('.check').addEventListener('click', function () {
             }
         }
     }
-});
+};
 
+// use addEventListener
 // again  - function  -- > reset settings
 document.querySelector('.again').addEventListener('click', function () {
     score = 20;
