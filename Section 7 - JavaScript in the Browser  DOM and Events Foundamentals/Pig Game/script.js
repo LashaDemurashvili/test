@@ -1,6 +1,5 @@
 'use strict';
 
-
 // select player elements
 const player0 = document.querySelector('.player--0');
 const player1 = document.querySelector('.player--1');
@@ -27,7 +26,6 @@ const switchPlayer = function () {
     player1.classList.toggle('player--active');
 };
 
-
 let scoresArr, currentScoreNew, activePlayer, playing;
 const init = function () {
     // create array - we can to change values inside
@@ -53,7 +51,7 @@ const init = function () {
     btnHold.classList.remove('hidden');
     diceEl.classList.remove('hidden');
 
-    document.querySelector('.winner').textContent = ''
+    document.querySelector('.winner').textContent = '';
 };
 
 // restart game
@@ -102,8 +100,8 @@ btnHold.addEventListener('click', function () {
             diceEl.classList.add('hidden');
 
             // unhidden and update winner text according to who win actually
-            document.querySelector('.winner_div').classList.remove('hidden')
-            document.querySelector('.winner').textContent = activePlayer === 0 ? 'winner is - player 1' : 'winner is - player 2'
+            document.querySelector('.winner_div').classList.remove('hidden');
+            document.querySelector('.winner').textContent = activePlayer === 0 ? 'winner is - player 1' : 'winner is - player 2';
         } else {
             // 3. switch player
             switchPlayer();
