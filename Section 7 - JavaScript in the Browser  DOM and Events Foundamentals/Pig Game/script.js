@@ -28,10 +28,10 @@ const switchPlayer = function () {
 };
 
 
-let scores, currentScoreNew, activePlayer, playing;
+let scoresArr, currentScoreNew, activePlayer, playing;
 const init = function () {
     // create array - we can to change values inside
-    scores = [0, 0];
+    scoresArr = [0, 0];
     currentScoreNew = 0;
     activePlayer = 0;
     playing = true;
@@ -86,12 +86,12 @@ btnRoll.addEventListener('click', function () {
 btnHold.addEventListener('click', function () {
     if (playing) {
         // 1.add current socre to the array according to the active player
-        scores[activePlayer] += currentScoreNew;
+        scoresArr[activePlayer] += currentScoreNew;
         document.getElementById(`score--${activePlayer}`).textContent =
-            scores[activePlayer];
+            scoresArr[activePlayer];
 
         //  2.check if player's score is grater or equal to 100 - if True --> winner <-- and end game
-        if (scores[activePlayer] >= 50) {
+        if (scoresArr[activePlayer] >= 100) {
             playing = false;
             document.querySelector(`.player--${activePlayer}`).classList.add('player--winner');
             document.querySelector(`.player--${activePlayer}`).classList.remove('player--active');
