@@ -64,7 +64,7 @@ main {
 }
 
 .player--active {
-  background-color: rgba(248, 248, 248, 0.701);
+  background-color: rgba(213, 210, 210, 0.7);
 }
 
 .player--active .name {
@@ -132,8 +132,10 @@ main {
 #btn--new {
   top: 4rem;
 }
+
 #btn--roll {
   top: 39.3rem;
+
 }
 #btn--hold {
   top: 46.1rem;
@@ -174,4 +176,7 @@ main {
   position: absolute;
   top: 7%;
   font-size: 3rem;
+  color: #a1a11c;
+  text-shadow: 3px 3px 10px green;
+  border-bottom: 1px solid red;
 }

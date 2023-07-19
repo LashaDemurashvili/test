@@ -47,6 +47,13 @@ const init = function () {
 
     player0.classList.add('player--active'); // when start player0 player should be active
     player1.classList.remove('player--active'); // if it has
+
+    // hide buttons when win
+    btnRoll.classList.remove('hidden');
+    btnHold.classList.remove('hidden');
+    diceEl.classList.remove('hidden');
+
+    document.querySelector('.winner').textContent = ''
 };
 
 // restart game
@@ -57,7 +64,7 @@ btnRoll.addEventListener('click', function () {
     let dice = Math.trunc(Math.random() * 6) + 1;
 
     // ?? testing ??
-    dice === 1 ? dice += 1 : null
+    // dice === 1 ? dice += 1 : null
     // console.log(dice);
 
     // 2.display dice
@@ -84,7 +91,7 @@ btnHold.addEventListener('click', function () {
             scores[activePlayer];
 
         //  2.check if player's score is grater or equal to 100 - if True --> winner <-- and end game
-        if (scores[activePlayer] >= 100) {
+        if (scores[activePlayer] >= 50) {
             playing = false;
             document.querySelector(`.player--${activePlayer}`).classList.add('player--winner');
             document.querySelector(`.player--${activePlayer}`).classList.remove('player--active');
@@ -94,8 +101,9 @@ btnHold.addEventListener('click', function () {
             btnHold.classList.add('hidden');
             diceEl.classList.add('hidden');
 
+            // unhidden and update winner text according to who win actually
             document.querySelector('.winner_div').classList.remove('hidden')
-            document.querySelector('.winner').textContent = activePlayer === 0 ? 'player 1' : 'player 2'
+            document.querySelector('.winner').textContent = activePlayer === 0 ? 'winner is - player 1' : 'winner is - player 2'
         } else {
             // 3. switch player
             switchPlayer();
