@@ -75,7 +75,6 @@ btnRoll.addEventListener('click', function () {
     }
 });
 
-
 // hold button
 btnHold.addEventListener('click', function () {
     if (playing) {
@@ -103,7 +102,6 @@ btnHold.addEventListener('click', function () {
         }
     }
 });
-
 
 btnNew.addEventListener('click', function () {
     init();
