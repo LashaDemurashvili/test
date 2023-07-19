@@ -142,7 +142,7 @@ main {
 }
 
 .btn:active {
-  transform: translate(-50%, 3px);
+  transform: translate(-50%, 10%);
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
 }
 
@@ -179,4 +179,6 @@ main {
   color: #a1a11c;
   text-shadow: 3px 3px 10px green;
   border-bottom: 1px solid red;
+  border-top: 1px solid red;
+
 }
