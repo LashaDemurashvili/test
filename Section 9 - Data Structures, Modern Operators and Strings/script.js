@@ -1,35 +1,3 @@
-/*
-// destructuring arrays
-// swap
-let [first, sec] = restaurant.categories;
-console.log(first, sec);
-[first, sec] = [sec, first];
-console.log(first, sec);
-// now first is equal to second and sec to first
-
-const [a, b] = restaurant.order(0, 1); // order - is function => returned value a = 0, b = 1
-console.log(`a: ${a} \nb: ${b}`);
-
-
-//////////////////////////////////////////////////////////
-// nested & default value
-const arr = [1, , 3, [77, 88, 99]];
-const [a, b = 7, c, [d, k, o]] = arr;
-
-console.log(a, b, c);
-console.log(d, k, o);
-
-//////////////////////////////////////////////////////////
-
-
-
-//////////////////////////////////////////////////////////
-
-
-
-
-*/
-
 'use strict';
 
 // Data needed for a later exercise
@@ -43,10 +11,6 @@ const restaurant = {
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-
-  order: function (first, second) {
-    return [this.starterMenu[first], this.mainMenu[second]];
-  },
 
   openingHours: {
     thu: {
@@ -63,12 +27,3 @@ const restaurant = {
     },
   },
 };
-
-// Destructuring Object
-const { name, openingHours, mainMenu } = restaurant;
-console.log(name, openingHours, mainMenu);
-
-// change the names
-const { name: newName, openingHours: newHours, mainMenu: newMenu } = restaurant;
-
-console.log(newName, newHours, newMenu);
