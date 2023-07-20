@@ -179,6 +179,7 @@ addArrow(2, 5, 8);
 let age = 30;
 let oldAge = age;
 age = 31;
+
 console.log(age);
 console.log(oldAge);
 
@@ -191,6 +192,41 @@ friend.age = 27;
 console.log('Friend:', friend);
 console.log('Me', me);
 
+///////////////////////////////////////
+// clone object to remain original one as it is
+
+function deepClone(obj) {
+    return JSON.parse(JSON.stringify(obj));
+}
+
+/////////////////////////////////////////////
+let lasha = {
+    name:'lasha',
+    age:25
+}
+
+let sopo = JSON.parse(JSON.stringify(lasha))
+sopo.name = 'sopo'
+sopo.age = 27
+
+
+let beka = JSON.parse(JSON.stringify(sopo))
+beka.name = 'beka'
+beka.age = 28
+
+const objectClone = function(obj){
+    return JSON.parse(JSON.stringify(obj))
+}
+
+const testclone = objectClone(sopo)
+testclone.name = 'test'
+testclone.age = 77
+
+
+console.log(lasha);
+console.log(sopo);
+console.log(beka);
+console.log(testclone);
 
 ///////////////////////////////////////
 // Primitives vs. Objects in Practice
