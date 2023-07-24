@@ -37,8 +37,9 @@ const restaurant = {
 };
 
 
-const arr = [7,8,9]
-const newArr = [1,2,3, ...arr]
+// spread operator
+const restaurantCopy = {testcase:1, ...restaurant, w_testacse:2}
 
-console.log(newArr);
-console.log(...newArr);
+console.log(restaurantCopy);
+console.log(restaurant);
+

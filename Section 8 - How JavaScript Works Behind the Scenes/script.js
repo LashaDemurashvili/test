@@ -210,9 +210,9 @@ sopo.name = 'sopo'
 sopo.age = 27
 
 
-const beka = JSON.parse(JSON.stringify(sopo))
-beka.name = 'beka'
-beka.age = 28
+const saba = JSON.parse(JSON.stringify(sopo))
+saba.name = 'saba'
+saba.age = 28
 
 // clone everything
 function deepClone(obj) {
@@ -226,7 +226,7 @@ testclone.age = 77
 
 console.log(lasha);
 console.log(sopo);
-console.log(beka);
+console.log(saba);
 console.log(testclone);
 
 /////////////////////////////////////////////////////////// deep clone
