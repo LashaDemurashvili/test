@@ -33,6 +33,8 @@ const restaurant = {
     },
 };
 
+const {openingHours} = restaurant
 
-const {menu=[], starterMenu: stMen=[]} = restaurant
-console.log(menu);
+const {fri: {open, close}} = openingHours
+
+console.log(`Restaurant open at: ${open},\nAnd close at: ${close}`);
