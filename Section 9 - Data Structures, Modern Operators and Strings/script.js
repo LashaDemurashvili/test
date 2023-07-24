@@ -33,11 +33,6 @@ const restaurant = {
     },
 };
 
-const {name, categories, openingHours} = restaurant;
 
-console.log(name);
-console.log(categories);
-console.log(openingHours);
-for (let i in openingHours) {
-    console.log(i, openingHours[i]);
-}
+const {menu=[], starterMenu: stMen=[]} = restaurant
+console.log(menu);
