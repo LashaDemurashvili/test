@@ -31,10 +31,14 @@ const restaurant = {
             close: 24,
         },
     },
+    ordDeliv: function({startIndex=0, mainIndex=0, time='77:77', address='@@'}){
+        console.log(`Order recieved! ${this.starterMenu[startIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} ar ${time}`);
+    },
 };
 
-const {openingHours} = restaurant
 
-const {fri: {open, close}} = openingHours
+const arr = [7,8,9]
+const newArr = [1,2,3, ...arr]
 
-console.log(`Restaurant open at: ${open},\nAnd close at: ${close}`);
+console.log(newArr);
+console.log(...newArr);
