@@ -36,10 +36,29 @@ const restaurant = {
     },
 };
 
+const {fri:f='777', ...week} = restaurant.openingHours
+console.log(week);
+console.log(f);
 
-// spread operator
-const restaurantCopy = {testcase:1, ...restaurant, w_testacse:2}
+const [a,b, ...others] =  restaurant.categories
+console.log(a, b);
+console.log(others);
 
-console.log(restaurantCopy);
-console.log(restaurant);
+
+const add = (...numbers) => {
+    return numbers.reduce((x,y) => x+y)
+}
+
+
+const plus = (...numbers) => {
+    let sum = 0;
+    for(let i of numbers){
+        sum+= i
+    }
+    return sum
+}
+
+const x = [12,2,5]
+console.log(add(...x));
+console.log(plus(12,2,5));
 
