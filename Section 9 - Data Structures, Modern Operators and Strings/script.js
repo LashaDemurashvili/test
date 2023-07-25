@@ -35,32 +35,18 @@ const restaurant = {
         console.log(`Order recieved! ${this.starterMenu[startIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} ar ${time}`);
     },
 };
+//////////////////////////////////////////// Short Circuiting - && || operators
+// Section -  Short Circuiting
+// and && operator
+// return first false
+console.log(2 && null && false && 8);
+// last value if all are truth
+console.log(2 && 1 && true && 777);
 
-const {fri:f='777', ...week} = restaurant.openingHours
-console.log(week);
-console.log(f);
+// or || operator
+// return first truth value
+console.log(0 || 2 || 3 || 0 || 7);
 
-const [a,b, ...others] =  restaurant.categories
-console.log(a, b);
-console.log(others);
-
-
-const add = (...numbers) => {
-    return numbers.reduce((x,y) => x+y)
-}
-
-
-const plus = (...numbers) => {
-    let sum = 0;
-    for(let i of numbers){
-        sum+= i
-    }
-    return sum
-}
-
-const x = [12,2,5]
-console.log(add(...x));
-console.log(plus(12,2,5));
-
-console.log(3 && false);
+// last value if all are false
+console.log(0 || false || 0 || 0 || null);
 
