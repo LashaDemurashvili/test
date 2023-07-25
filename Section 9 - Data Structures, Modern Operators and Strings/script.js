@@ -62,3 +62,5 @@ const x = [12,2,5]
 console.log(add(...x));
 console.log(plus(12,2,5));
 
+console.log(3 && false);
+
