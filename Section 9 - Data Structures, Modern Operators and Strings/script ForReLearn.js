@@ -126,3 +126,22 @@ console.log(0 || false || 0 || 0 || null);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////// END \
 */
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////// The Nullish Coalescing Operator (??)
+const restaurant = {
+    name: 'test'
+}
+
+restaurant.numGuests = 0
+const guests = restaurant.numGuests || 10;
+console.log(guests);
+
+// Nullish: null and undefined (NOT 0 or '')
+restaurant.numGuests = 0
+const guestsCorrect = restaurant.numGuests ?? 10;
+console.log(guestsCorrect);
+
+//////////////////////////////////////////////////////////////////////////////////////////////////// END \
