@@ -129,7 +129,7 @@ console.log(0 || false || 0 || 0 || null);
 
 
 
-
+/*
 /////////////////////////////////////////////////////////////////////////////// The Nullish Coalescing Operator (??)
 const restaurant = {
     name: 'test'
@@ -145,3 +145,4 @@ const guestsCorrect = restaurant.numGuests ?? 10;
 console.log(guestsCorrect);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////// END \
+*/

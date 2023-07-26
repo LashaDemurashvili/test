@@ -37,3 +37,31 @@ const restaurant = {
 };
 
 
+const rest1 = {
+    name: 'La Octagone',
+    owner: 'lasha familia',
+};
+
+const rest2 = {
+    name: 'Ta Garador',
+    numGuest: 20,
+}
+
+// OR assignment operator
+// rest1.numGuest = rest1.numGuest || 10
+// rest2.numGuest = rest2.numGuest || 10
+
+// so if numGuest founded in rest1, that value stay as it is, if not found assign to the new variable
+rest1.numGuest ||= 37;
+rest2.numGuest ||= 10;
+
+console.log(rest1);
+console.log(rest2);
+
+const myObj = {
+    name: 'lasha'
+}
+myObj.name ||= 'lashka'
+myObj.dog ||= 'loma'
+
+console.log(myObj);
