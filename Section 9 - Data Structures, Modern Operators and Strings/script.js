@@ -40,12 +40,16 @@ const restaurant = {
 const rest1 = {
     name: 'La Octagone',
     owner: 'lasha familia',
+    millionaire: false,
+    yacht: 0
 };
 
 const rest2 = {
     name: 'Ta Garador',
     numGuest: 20,
 }
+console.log(rest1);
+console.log(rest2);
 
 // OR assignment operator
 // rest1.numGuest = rest1.numGuest || 10
@@ -55,13 +59,31 @@ const rest2 = {
 rest1.numGuest ||= 37;
 rest2.numGuest ||= 10;
 
+// if found(stay as it is) OR =(assign new variable) 'lashka'
+rest1.name ||= 'lashka'
+rest1.dog ||= 'loma'
+
+// so those values will change because
+// false and 0 were in this object
+rest1.millionaire ||= 3
+rest1.yacht ||= 1
+
 console.log(rest1);
-console.log(rest2);
 
+// to avoid 'false' and '0' cases bug we use nullish operator
+// nullish assignment operator (null or undefined)
+// ??=
 const myObj = {
-    name: 'lasha'
+    name:'lasha',
+    bike: false,
+    cat: 0
 }
-myObj.name ||= 'lashka'
-myObj.dog ||= 'loma'
 
+console.log(myObj);
+
+myObj.name ??= 'new_lasha'
+myObj.bike ??= 'Harley Davidson - Fat Boy'
+myObj.cat ??= 'little cat'
+
+// now values will not change
 console.log(myObj);
