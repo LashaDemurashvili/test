@@ -35,18 +35,5 @@ const restaurant = {
         console.log(`Order recieved! ${this.starterMenu[startIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} ar ${time}`);
     },
 };
-//////////////////////////////////////////// Short Circuiting - && || operators
-// Section -  Short Circuiting
-// and && operator
-// return first false
-console.log(2 && null && false && 8);
-// last value if all are truth
-console.log(2 && 1 && true && 777);
 
-// or || operator
-// return first truth value
-console.log(0 || 2 || 3 || 0 || 7);
-
-// last value if all are false
-console.log(0 || false || 0 || 0 || null);
 
