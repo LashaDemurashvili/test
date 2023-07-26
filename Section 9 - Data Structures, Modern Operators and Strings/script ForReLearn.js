@@ -212,12 +212,24 @@ myObj.cat ??= 'little cat'
 console.log(myObj);
 
 
+// AND assignment operator
+const lashaObj = {
+    name:'lasha',
+    age:25
+}
+
+// created new key value pair - ufc: undefined
+lashaObj.name = lashaObj.name && 'Mcgregor'  // found and updated
+lashaObj.ufc = lashaObj.ufc && 'Jons'  // not found and created ONLY key
+
+// avoid undefined value
+lashaObj.boxing &&= 'mayweather'  // not found and not updated
+lashaObj.age &&= '007'  // found and updated
+
+console.log(lashaObj);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////// END \
 */
-
-
-
 
 
 
