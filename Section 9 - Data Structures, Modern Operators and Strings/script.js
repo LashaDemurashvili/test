@@ -1,3 +1,24 @@
 'use strict';
 
 
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+const openingHours = {
+    [weekdays[3]]: {
+        open: 12,
+        close: 22,
+    },
+    [weekdays[4]]: {
+        open: 11,
+        close: 23,
+    },
+    [weekdays[5]]: {
+        open: 0, // Open 24 hours
+        close: 24,
+    },
+};
+
+// console.log(openingHours);
+for (let day of weekdays){
+    const open = openingHours[day]?.open ?? 'closed' // if we use || (or operator) on sat '0' will be also 'closed', so we use nullish operator on this case.
+    console.log(`On ${day}, we open at ${open}`);
+}
