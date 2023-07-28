@@ -66,25 +66,25 @@ const game = {
 // 1
 // (Example: "Goal 1: Lewandowski")
 
-for (let [index, player] of game.scored.entries()){
-    console.log(`Goal ${index+1}: ${player}`);
+for (let [index, player] of game.scored.entries()) {
+    console.log(`Goal ${index + 1}: ${player}`);
 }
 
 // 2
 // option 1
-const odds = Object.values(game.odds)
-let average = 0
-for(let odd of odds){
-    average += odd
+const odds = Object.values(game.odds);
+let average = 0;
+for (let odd of odds) {
+    average += odd;
 }
-average /= odds.length
+average /= odds.length;
 console.log(average);
 
 // option 2
-let ave = 0
-let le = Object.entries(game.odds).length
-for (let [key, value] of Object.entries(game.odds)){
-    ave += value
+let ave = 0;
+let le = Object.entries(game.odds).length;
+for (let [odd, value] of Object.entries(game.odds)) {
+    ave += value;
 }
 console.log(ave /= le);
 
@@ -94,22 +94,16 @@ console.log(ave /= le);
 // Odd of draw: 3.25
 // Odd of victory Borrussia Dortmund: 6.5
 
-for (let [team, score] of Object.entries(game.odds)){
-    const output = team === 'x' ? 'draw' : game[team]
+for (let [team, score] of Object.entries(game.odds)) {
+    const output = team === 'x' ? 'draw' : `victory ${game[team]}`;
     console.log(`Odd of ${output}: ${score}`);
 }
 
 // 4
-// sample output
-// {
-// Gnarby: 1,
-// Hummels: 1,
-// Lewandowski: 2
-// }
+// repeat values in array
 
-
-const scores = {}
-for (let player of game.scored){
-    scores[player] ? scores[player]++ : scores[player] = 1
+const scores = {};
+for (let player of game.scored) {
+    scores[player] ? scores[player]++ : scores[player] = 1;
 }
 console.log(scores);
