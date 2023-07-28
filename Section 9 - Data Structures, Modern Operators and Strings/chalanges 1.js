@@ -1,6 +1,5 @@
 'use strict';
 
-
 ////////////////////////////////////////////////////////////////////////// Coding Challenge #1
 /*
 We're building a football betting app (soccer for my American friends 😅)!
@@ -17,7 +16,6 @@ Suppose we get data from a web service about a certain game (below). In this cha
 TEST DATA FOR 6: Use players 'Davies', 'Muller', 'Lewandowski' and 'Kimmich'. Then, call the function again with players from game.scored
  */
 
-/*
 
 const game = {
     team1: 'Bayern Munich',
@@ -63,33 +61,33 @@ const game = {
 
 // solutions
 // 1
-const [player1, player2] = game.players
+const [player1, player2] = game.players;
 console.log(player1, player2);
 
 // 2
-const [gk1, ...fieldPlayers1] = player1
-const [gk2, ...fieldPlayers2] = player2
+const [gk1, ...fieldPlayers1] = player1;
+const [gk2, ...fieldPlayers2] = player2;
 console.log(gk1);
 console.log(fieldPlayers1);
 
 // 3
-const allPlayers = [...player1, ...player2]
+const allPlayers = [...player1, ...player2];
 console.log(allPlayers);
 console.log(allPlayers.length);
 
 // 4
-const players1Final = ['Thiago', 'Coutinho', 'Perisic', ...player1]
+const players1Final = ['Thiago', 'Coutinho', 'Perisic', ...player1];
 console.log(players1Final);
 
 // 5
-const {odds: {team1, x:draw, team2}} = game
+const {odds: {team1, x: draw, team2}} = game;
 console.log(team1, draw, team2);
 
 // 6
-const printGoals = function(...players){
+const printGoals = function (...players) {
     console.log(players);
     console.log(`${players.length} goals were scored`);
-}
+};
 
 // printGoals('Muller', 'Lewandowski');
 printGoals(...game.scored);
@@ -98,7 +96,6 @@ printGoals(...game.scored);
 team1 < team2 && console.log('Team 1 is more likely to win');
 team1 > team2 && console.log('Team 2 is more likely to win');
 
-*/
 
 
 
