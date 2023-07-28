@@ -100,7 +100,6 @@ team1 > team2 && console.log('Team 2 is more likely to win');
 
 */
 
-////////////////////////////////////////////////////////////////////////// Coding Challenge #2
 
 
 
