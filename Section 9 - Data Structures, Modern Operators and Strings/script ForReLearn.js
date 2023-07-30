@@ -452,8 +452,32 @@ console.log(obj);
 
 
 /*
-/////////////////////////////////////////////////////////////////////////////// wwwwwwwwwwwwwwwwwwwwww_CODE_TITLE
-CODE_HERE
+/////////////////////////////////////////////////////////////////////////////// set
+
+const mySet = new Set([1,2,3,4,4,4,5])
+console.log(mySet);
+console.log(mySet.size);
+
+const myName = new Set('lashademurashvili')
+console.log(myName.size);
+
+const testArr = [1,1,1,1,2,3]
+console.log(testArr);
+
+// using set to remove duplicates,then using spread operator to convert as array
+const testArrNew = [...new Set(testArr)]
+console.log(testArrNew);
+
+const menuArr = ['Bread', 'Eggs', 'Milk', 'Milk', 'Milk']
+const menuSet = new Set(menuArr)
+
+menuSet.add('Cheese')
+
+// returned - true or false
+console.log(menuSet.delete('Eggs of chicken'));
+console.log(menuSet.has('Milk'));
+
+console.log(menuSet);
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////// END \
