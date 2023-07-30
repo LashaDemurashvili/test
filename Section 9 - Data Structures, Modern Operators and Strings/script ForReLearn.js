@@ -42,11 +42,21 @@ console.log(goodCopyArr);
 
 
 /*
-/////////////////////////////////////////////////////////////////////////////// Destructuring Objects
+/////////////////////////////////////////////////////////////////////////////// Destructuring Objects, deep clone
+// make object deep clone using ==> destructuring object, and spread operator
 const obj = {
     username: 'lasha1998',
     password: 'pass123'
 }
+
+const obJDeepClone = {...obj}
+
+// obJDeepClone.email = 'lasha@test.gmail.com'
+obJDeepClone['email'] = 'lasha@test.gmail.com'
+
+console.log(obj); // original
+console.log(obJDeepClone); // new object
+
 
 // get values from obj as new variables
 // NOTE - new value name should be the same as in obj value, otherways we get an => undefined value
@@ -582,7 +592,6 @@ console.log([...question.values()]);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////// END \
 */
-
 
 
 // ------------------------------------------------------------------------------------------------------------ NEW LINE
