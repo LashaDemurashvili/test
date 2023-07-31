@@ -1,14 +1,21 @@
 'use strict';
 
+// string methods
+let name = '   laShA';
+name = name[0].toUpperCase() + name.slice(1).toLowerCase();
 
+let x, y;
+x = ' lasha ';
+y = '  LaShA  ';
 
-let name = '   laShA'
+console.log(x, y);
+x = x.trimStart().trimEnd().toLowerCase();
+y = y.trimStart().trimEnd().toLowerCase();
 
-name = name[0].toUpperCase() + name.slice(1).toLowerCase()
+console.log(x, y);
+console.log(x === y);
 
-
-name = name.trimStart()
-console.log(name.length);
-console.log(name);
-
-
+// replacing
+const priceGB = '288,97£';
+const priceUS = priceGB.replace('£', '$').replace(',', '.');
+console.log(priceUS);
