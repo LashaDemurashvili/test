@@ -598,8 +598,146 @@ console.log([...question.values()]);
 
 
 /*
-/////////////////////////////////////////////////////////////////////////////// wwwwwwwwwwwwwwwwwwwwww_CODE_TITLE
-CODE_HERE
+/////////////////////////////////////////////////////////////////////////////// String methods
+
+let name = '   laShA';
+name = name[0].toUpperCase() + name.slice(1).toLowerCase();
+
+let x, y;
+x = ' lasha ';
+y = '  LaShA  ';
+
+console.log(x, y);
+x = x.trimStart().trimEnd().toLowerCase();
+y = y.trimStart().trimEnd().toLowerCase();
+
+console.log(x, y);
+console.log(x === y);
+
+// replacing
+let priceGB = '288,97£';
+let priceUS = priceGB.replace('£', '$').replace(',', '.');
+console.log(priceUS);
+
+
+// replaceall and RegEx
+const announcement =
+    'All passengers come to boarding door 23. Boarding door 23!';
+
+console.log(announcement.replace('door', 'gate')); // replaced only first founded not all
+console.log(announcement.replaceAll('door', 'GATE')); // replaced all
+
+// using regex
+// g - global
+console.log(announcement.replace(/door/g, 'gate')); // replaced all
+
+
+/////////////////////////////////////////////// need review
+// const originalString = "John Doe";
+// const replacedString = originalString.replace(/(\w+)\s(\w+)/, "$2, $1 \n$1, $2");
+// console.log(replacedString); // Output: "Doe, John"
+
+
+// Booleans
+console.log(`\nBooleans`);
+const me = 'lasha_demurashvili'
+console.log(me.includes('lasha'));
+// console.log(me.startsWith('las')); // true
+console.log(me.startsWith('demu')); // false
+
+const myPlane = 'Boeing777'
+if(myPlane.startsWith('Bo') && myPlane.endsWith('777')){
+    console.log(myPlane, "Approved");
+}else {
+    console.log("Rejected");
+}
+
+
+// Practice exercise
+const checkBaggage = function (items) {
+    const baggage = items.toLowerCase();
+
+    if (baggage.includes('knife') || baggage.includes('gun')) {
+        console.log('You are NOT allowed on board');
+    } else {
+        console.log('Welcome aboard!');
+    }
+};
+
+checkBaggage('I have a laptop, some Food and a pocket Knife');
+checkBaggage('Socks and camera');
+checkBaggage('Got some snacks and a gun for protection');
+
+
+/////////////////////////////////////////////////////////////////////////////////////////// String methods - parts 3
+// Split and Join
+
+const me = 'Hello my name is lasha demurashvili, and I am 25'
+let x = me.split(' ');
+
+let y = x.join(' ')
+console.log(y);
+
+const fname = 'lasha'
+const lname = 'demurashvili'
+const age = '25'
+
+const fullName = [fname, lname.toUpperCase(), age].join('---')
+console.log(fullName);
+
+
+// capitalize
+console.log(`\nCapitalize all word in sentence\n`);
+const capitalizeName = function (name){
+    const names = name.split(' ') // split array
+    const resultsArr = []  // create new array
+
+    for (let word of names) {
+        // option #1
+        // resultsArr.push(word[0].toUpperCase() + word.slice(1));
+
+        // option #2
+        resultsArr.push(word.replace(word[0], word[0].toUpperCase()))
+    }
+    console.log(resultsArr.join('_'));
+}
+
+capitalizeName('lasha demurashvili')
+capitalizeName('john doe is 22 years old')
+
+
+// Padding
+const message = 'Go to gate 23!';
+console.log(message.padStart(20, '+').padEnd(30, '+'));
+console.log('lasha'.padStart(20, '+').padEnd(30, '+'));
+
+
+const maskCreditCard = function (number) {
+    const str= number + '';
+    const last = str.slice(-4)
+    return last.padStart(str.length, '*')
+};
+
+
+console.log(maskCreditCard(64637836));
+console.log(maskCreditCard(43378463864647384));
+console.log(maskCreditCard('334859493847755774747'));
+
+
+// Repeat
+const message2 = 'Bad waether... All Departues Delayed... ';
+console.log(message2.repeat(2));
+
+const planesInLine = function (n) {
+    console.log(`There are ${n} planes in line ${'🛩'.repeat(n)}`);
+};
+planesInLine(5);
+planesInLine(3);
+planesInLine(4);
+
+const seven = '7'.repeat(7)
+console.log(seven);
+console.log(seven.length);
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////// END \
