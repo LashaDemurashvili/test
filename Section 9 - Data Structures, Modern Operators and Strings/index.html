@@ -56,32 +56,7 @@
 </div>
 
 
-<script src="script.js">
-</script>
-
-<script>
-const text = document.querySelector('#txt').value
-function mainFunc(txt=text){
-    const splitArr = txt.split('\n')
-    const newArr = []
-
-    for (let word of splitArr){
-        word = word.trimStart().trimEnd()
-        const indexOfUnderscore = word.indexOf('_')
-        const indexOfChar = indexOfUnderscore+1
-
-        word = word.replace(word[indexOfUnderscore], '').replace(word[indexOfChar], word[indexOfChar].toUpperCase())
-        newArr.push(word)
-    }
-    console.log(newArr);
-
-}
-
-
-
-
-</script>
-
+<script src="script.js"> </script>
 
 </body>
 </html>

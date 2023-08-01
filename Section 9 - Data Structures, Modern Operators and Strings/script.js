@@ -1,5 +1,3 @@
-'use strict';
-
 'use strict'
 
 // Coding Challenge #4
@@ -28,8 +26,24 @@ HINT 2: The solution only needs to work for a variable made out of 2 words, like
 HINT 3: Start without worrying about the ✅. Tackle that only after you have the variable name conversion working 😉
 HINT 4: This challenge is difficult on purpose, so start watching the solution in case you're stuck. Then pause and continue!
 
-Afterwards, test with your own test data!
+Afterward, test with your own test data!
 */
 
 
+// document.body.append(document.createElement('textarea'))
+// document.body.append(document.createElement('button'))
+
+
+function mainFunc(){
+    const text = document.getElementById('txt').value
+    console.log(text);
+    const rows = text.split('\n')
+    console.log(rows);
+    for (let word of rows){
+        const w = word.trim().toLowerCase()
+        const []
+
+        console.log(w);
+    }
+}
 
