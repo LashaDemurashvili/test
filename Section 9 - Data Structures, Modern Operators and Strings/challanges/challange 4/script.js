@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 // Coding Challenge #4
 
@@ -26,14 +26,38 @@ HINT 2: The solution only needs to work for a variable made out of 2 words, like
 HINT 3: Start without worrying about the ✅. Tackle that only after you have the variable name conversion working 😉
 HINT 4: This challenge is difficult on purpose, so start watching the solution in case you're stuck. Then pause and continue!
 
-Afterwards, test with your own test data!
+Afterward, test with your own test data!
 */
 
 
-document.body.append(document.createElement('textarea'))
-document.body.append(document.createElement('button'))
+// document.body.append(document.createElement('textarea'))
+// document.body.append(document.createElement('button'))
 
 
+// test data
+/*
+underscore_case
+first_name
+Some_Variable
+calculate_AGE
+delayed_departure
+lasha_demurashvili
+ */
 
 
+function mainFunc() {
+    const emoji = '✅';
+    const text = document.getElementById('txt').value;
+    const rows = text.split('\n'); // new split array
+
+    for (let [index, row] of rows.entries()) {
+        // using destruction array method
+        let a, b, c;
+        [a, b] = row.trim().toLowerCase().split('_'); // split by underscore
+        c = a + b.replace(b[0], b[0].toUpperCase());
+
+        const emojiRepeat = emoji.repeat(index + 1);
+        console.log(c.padEnd(20, ' '), emojiRepeat);
+    }
+}
 
