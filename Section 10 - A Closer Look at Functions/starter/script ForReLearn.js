@@ -168,15 +168,60 @@ transformer('hello I love javaScript, but i also like python', oneWord)
 // ------------------------------------------------------------------------------------------------------------ NEW LINE
 
 /*
-/////////////////////////////////////////////////////////////////////////////// wwwwwwwwwwwwwwwwwwwwww_CODE_TITLE
-CODE_HERE
+//////////////////////////////////////////////////////////////////////////////// Functions Returning Functions
+const greet = function (greeting) {
+    return function (name) {
+        console.log(`${greeting}; ${name}`)
+    }
+}
+
+// 1 approach
+const x = greet('Hello')
+x('Lasha')
+
+// 2 approach
+greet('Hey')('Loma')
+
+
+// using arrow functions
+const greetArrow = (greeting) => {
+    return (name) => {
+        console.log(`${greeting}, ${name}`)
+    }
+}
+
+console.log('')
+
+// 1 approach
+const salami = greetArrow('Salami')
+salami('David Beckhem')
+
+// 2 approach
+greetArrow('Hi')("lasha")
+
+
+// another way to use arrow function
+console.log('')
+const greetArr = greeting => name => {
+    console.log(`${greeting}, ${name}`)
+}
+
+greetArr('zd')('jason statham')
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////// END \
 */
 
 
+// ------------------------------------------------------------------------------------------------------------ NEW LINE
 
+/*
+/////////////////////////////////////////////////////////////////////////////// wwwwwwwwwwwwwwwwwwwwww_CODE_TITLE
+CODE_HERE
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////// END \
+*/
 
 
 
