@@ -113,13 +113,67 @@ console.log(counter.value)
 
 /*
 /////////////////////////////////////////////////////////////////////////////// Functions Accepting Callback Functions
-CODE_HERE
+// using regex, and g for global
+// replace all whitespace with ''
+const oneWord = function (str) {
+    return str.replace(/ /g, '').toLowerCase();
+}
+
+const upperFirstWord = function (str) {
+    const [first, ...others] = str.split(' ')
+    return [first.toUpperCase(), ...others].join(' ')
+}
+
+
+const upperFirstChar = function (str) {
+    // create empty array for capitalize string
+    const newArr = []
+
+    const [...others] = str.trim().split(' ')  // array
+    for (let item of others) {
+
+        // avoid empty string
+        if (item !== '') {
+            newArr.push(item.replace(item[0], item[0].toUpperCase()))
+        }
+    }
+    // console.log(...newArr)
+    return newArr.join(' ');
+}
+
+console.log('\n')
+// Higher-order function
+const transformer = function (str, fn) {
+    console.log(`Original string: ${str}`);
+    console.log(`Transformed string: ${fn(str)}`);
+
+    console.log(`Transformed by: ${fn.name}`);   // returned function name
+    console.log('\n')
+};
+
+transformer('hello I love javaScript, but i also like python', upperFirstWord)
+transformer('hello I love javaScript, but i also like python', upperFirstChar)
+transformer('hello I love javaScript, but i also like python', oneWord)
+
+
+// let counter = 0;
+// document.body.addEventListener('click', function (){
+//     console.log(`Click ${counter++}`)
+// })
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////// END \
 */
 
+// ------------------------------------------------------------------------------------------------------------ NEW LINE
 
+/*
+/////////////////////////////////////////////////////////////////////////////// wwwwwwwwwwwwwwwwwwwwww_CODE_TITLE
+CODE_HERE
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////// END \
+*/
 
 
 
