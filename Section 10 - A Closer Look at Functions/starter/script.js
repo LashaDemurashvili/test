@@ -14,5 +14,5 @@ const lufthansa = {
 };
 
 
-lufthansa.book(239, 'Lasha Demurashvili', '777')
+// lufthansa.book(239, 'Lasha Demurashvili', '777')
 
