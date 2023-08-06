@@ -151,9 +151,9 @@ const transformer = function (str, fn) {
     console.log('\n')
 };
 
-transformer('hello I love javaScript, but i also like python', upperFirstWord)
-transformer('hello I love javaScript, but i also like python', upperFirstChar)
-transformer('hello I love javaScript, but i also like python', oneWord)
+transformer('hello I love javaScript, but I also like python', upperFirstWord)
+transformer('hello I love javaScript, but I also like python', upperFirstChar)
+transformer('hello I love javaScript, but I also like python', oneWord)
 
 
 // let counter = 0;
@@ -351,8 +351,8 @@ const uk = {
 }
 
 // using bind method, and default parameters
-const bookUk = lufthansa.book.bind(uk, 66, 66) // so first two parameters is default, then what passed we use only first one, AS LAST
-bookUk(11, 22, 33) // we only use first parameter, as last one, because first and second parameter are defaults,
+const bookUk = lufthansa.book.bind(uk, 66, 66)         // so first two parameters is default, then what passed we use only first one, AS LAST
+bookUk(11, 22, 33)                                    // we only use first parameter, as last one, because first and second parameter are defaults,
 bookUk(11, 22)
 bookUk(11)
 // bookUk()  // we got undefined
@@ -383,12 +383,40 @@ document.querySelector('.buy').addEventListener('click', lufthansa.buyPlane.bind
 
 /*
 /////////////////////////////////////////////////////////////////////////////// bind
-CODE_HERE
+// Partial application
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(0.3, 200));
 
 
+// null or addTax
+// we can use >> null << or actually >> function name <<
+const addVAT = addTax.bind(null, 0.2);  // just pass first parameter)
+// addVAT = value => value + value * 0.23;
+
+console.log(addVAT(100));  // pass second parameter
+console.log(addVAT(200));  // pass second parameter
 
 
+// what's bind actually do
+const x = function (rate) {
+    return function (value) {
+        return value + value * rate;
+    };
+};
 
+const y = x(0.2);
+console.log(y(100));
+console.log(y(200));
+
+//////////////////////////////////////////////////////////////////////////////////////////////////// END \
+*/
+
+
+// ------------------------------------------------------------------------------------------------------------ NEW LINE
+
+
+/*
+/////////////////////////////////////////////////////////////////////////////// wwwwwwwwwwwwwwwwwwwwww_CODE_TITLE
 
 
 
@@ -397,8 +425,6 @@ CODE_HERE
 
 //////////////////////////////////////////////////////////////////////////////////////////////////// END \
 */
-
-
 
 
 
