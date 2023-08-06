@@ -293,8 +293,87 @@ console.log(geo.bookings);
 
 
 /*
-/////////////////////////////////////////////////////////////////////////////// wwwwwwwwwwwwwwwwwwwwww_CODE_TITLE
-CODE_HERE
+/////////////////////////////////////////////////////////////////////////////// The bind Method
+const lufthansa = {
+    airline: 'Lufthansa',
+    iataCode: 'LH',
+    plane: 'Boeing-',
+    bookings: [],
+    // book function(){}
+    book(flightNum, name, plane) {
+        console.log(`${name} - booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}, to the ${this.plane}${plane} !`);
+        this.bookings.push({flight: `${this.iataCode}${flightNum}`, name}) // or just name: name
+    },
+};
+
+const book = lufthansa.book;
+
+const geo = {
+    airline: 'Geo Air Lines',
+    iataCode: 'GE',
+    plane: 'Geobus-',
+    bookings: [],
+}
+
+// this two is the same, but we just use --> book <-- constant what we declared above
+// const bookGeo = lufthansa.book.bind(geo)
+const bookGeo = book.bind(geo)
+
+bookGeo(1, 'aaa', 11)
+bookGeo(2, 'bbb', 22)
+bookGeo(3, 'ccc', 33)
+
+console.log(geo.bookings)
+
+// create new object
+const rus = {
+    airline: 'Rus Air Lines',
+    iataCode: 'RU',
+    plane: 'MoscowAir-',
+    bookings: [],
+}
+
+const bookRus = lufthansa.book.bind(rus)
+
+bookRus(11, 'rus1', 12)
+bookRus(11, 'rus2', 13)
+bookRus(11, 'rus3', 14)
+
+console.log(rus.bookings)
+
+
+// create new object
+const uk = {
+    airline: 'Ukraine Air Lines',
+    iataCode: 'UK',
+    plane: 'UkraineAir-',
+    bookings: [],
+}
+
+// using bind method, and default parameters
+const bookUk = lufthansa.book.bind(uk, 66, 66) // so first two parameters is default, then what passed we use only first one, AS LAST
+bookUk(11, 22, 33) // we only use first parameter, as last one, because first and second parameter are defaults,
+bookUk(11, 22)
+bookUk(11)
+// bookUk()  // we got undefined
+
+console.log(uk.bookings)
+
+//////////////////////////////////////////////////////////// NOTE: bind method return new function
+
+lufthansa.planeNum = 300;
+lufthansa.buyPlane = function(){
+    console.log(this.buyPlane)
+
+    this.planeNum++;
+    console.log(this.planeNum)
+}
+
+document.querySelector('.buy').addEventListener('click', lufthansa.buyPlane.bind(lufthansa))
+
+// lufthansa.buyPlane.bind(lufthansa)
+// or
+// function (){lufthansa.buyPlane()}
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////// END \
@@ -302,6 +381,13 @@ CODE_HERE
 
 
 
+/*
+/////////////////////////////////////////////////////////////////////////////// bind
+CODE_HERE
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////// END \
+*/
 
 
 
