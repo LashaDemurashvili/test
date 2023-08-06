@@ -215,6 +215,83 @@ greetArr('zd')('jason statham')
 
 // ------------------------------------------------------------------------------------------------------------ NEW LINE
 
+
+/*
+/////////////////////////////////////////////////////////////////////////////// The call and apply Methods
+const lufthansa = {
+    airline: 'Lufthansa',
+    iataCode: 'LH',
+    plane: 'Boeing-',
+    bookings: [],
+    // book function(){}
+    book(flightNum, name, plane) {
+        console.log(`${name} - booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}, to the ${this.plane}${plane} !`);
+        this.bookings.push({flight: `${this.iataCode}${flightNum}`, name}) // or just name: name
+    },
+};
+
+// call method
+lufthansa.book(239, 'Lasha Demurashvili', '777')
+lufthansa.book(222, 'Jason Statham', '639')
+
+const eurowings = {
+    airline: 'Eurowings',
+    iataCode: 'EW',
+    plane: 'Airbus-',
+    bookings: [],
+};
+
+
+// so when we need same method
+// create new variable - book - and store in method from ==> lufthansa.book,
+// but this. keyword no longer work in here
+const book = lufthansa.book; // of course without call this function () right here
+
+// Does NOT work
+// book(24, 'Jack bauer', 24)
+
+book.call(eurowings, 24, 'Jack bauer', 24)
+book.call(eurowings, 23, 'Jack bauer11', 23)
+console.log(eurowings.bookings)
+
+// original one is preserved NOT MODIFIED
+console.log(lufthansa.bookings)
+
+const geo = {
+    airline: 'Geo Air Lines',
+    iataCode: 'GE',
+    plane: 'Geobus-',
+    bookings: [],
+}
+
+// using array, and then spread operator
+const personOne = [12, 'person one', 41]
+const personTwo = [13, 'person two', 41]
+book.call(geo, ...personOne)
+book.call(geo, ...personTwo)
+
+// this one is also different one from the original one,
+console.log(geo.bookings)
+
+
+// apply method
+const flightData = [583, 'George Cooper', 55];
+
+// this two is the same,  ==>  book.apply(geo, flightData); & book.call(geo, ...flightData);
+// in modern JS we no longer use apply,
+// instead of we just use ==> call and then ==> ...spread operator
+
+// book.apply(geo, flightData);
+book.call(geo, ...flightData);
+console.log(geo.bookings);
+
+//////////////////////////////////////////////////////////////////////////////////////////////////// END \
+*/
+
+
+// ------------------------------------------------------------------------------------------------------------ NEW LINE
+
+
 /*
 /////////////////////////////////////////////////////////////////////////////// wwwwwwwwwwwwwwwwwwwwww_CODE_TITLE
 CODE_HERE
@@ -222,7 +299,6 @@ CODE_HERE
 
 //////////////////////////////////////////////////////////////////////////////////////////////////// END \
 */
-
 
 
 
