@@ -448,12 +448,127 @@ console.log(notPrivate);
 
 
 /*
+/////////////////////////////////////////////////////////////////////////////// // Closures
+
+const secureBooking = function () {
+    let passengerCount = 0;
+
+    return function () {
+        passengerCount++;
+        console.log(`${passengerCount} passengers`);
+    };
+};
+
+const booker = secureBooking();
+
+// passengerCount - updated every function call
+booker();
+booker();
+booker();
+booker();
+
+for (let i = 0; i < 10; i++) {
+    booker();
+}
+
+console.dir(booker);
+console.log('\n'.repeat(3));
+
+
+///////////////////////////////////////
+// More Closure Examples
+// Example 1
+
+let f;
+
+const g = function () {
+    // a local variable
+    const a = 20;
+    f = function () {
+        console.log(a * 11);
+    };
+};
+
+const h = function () {
+    // a local variable
+    const a = 30;
+
+    // f has new value
+    f = function () {
+        console.log(a * 11);
+    };
+};
+
+
+g();
+f();
+console.dir(f);
+
+// Re-assigning f function
+h();
+f();
+console.dir(f);
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////// END \
+*/
+
+
+/*
+/////////////////////////////////////////////////////////////////////////////// |-------------------|
+// Example 2
+const boardPassengers = function (n, wait) {
+    const perGroup = n / 3;
+
+    // execute 2
+    for (let i = 1; i <= wait; i++) {
+        setTimeout(function () {
+            if (i === wait) {
+                console.log("BOOM".padStart(20).padEnd(20));
+            } else {
+                console.log(`Second: ${i}`);
+            }
+        }, i * 1000);
+    }
+
+    // execute 3
+    // execute last
+    setTimeout(function () {
+        console.log(`We are now boarding all ${n} passengers`);
+        console.log(`There are 3 groups, each with ${perGroup} passengers`);
+    }, wait * 1000);
+
+    // execute 1
+    // this code below executed first, because we wait => setTimeout (function) as many second as we pass parameter (wait)
+    console.log(`Will start boarding in ${wait} seconds`);
+};
+
+
+// created new same variable => perGroup => but actually it's not used in the function
+const perGroup = 1000;
+
+boardPassengers(120, 7);
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////// END \
+*/
+
+
+// ------------------------------------------------------------------------------------------------------------ NEW LINE
+
+
+/*
 /////////////////////////////////////////////////////////////////////////////// wwwwwwwwwwwwwwwwwwwwww_CODE_TITLE
 CODE_HERE
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////// END \
 */
+
+
+
+
+
 
 
 
