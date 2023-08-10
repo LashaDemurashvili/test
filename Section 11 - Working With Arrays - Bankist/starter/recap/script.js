@@ -62,12 +62,25 @@ console.log(letters);
 
 
 /*
-/////////////////////////////////////////////////////////////////////////////// wwwwwwwwwwwwwwwwwwwwww_CODE_TITLE
-CODE_HERE
+/////////////////////////////////////////////////////////////////////////////// // The new at Method
+const arr = [23, 11, 64];
+console.log(arr[0]);
+console.log(arr.at(0));
+
+// getting last array element
+console.log(arr[arr.length - 1]);
+console.log(arr.slice(-1)[0]);
+console.log(arr.at(-1));
+
+// at method works also with string
+console.log('Lasha'.at(0));
+console.log('Lasha'.at(-1));
+
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////// END \
 */
+
 
 
 
