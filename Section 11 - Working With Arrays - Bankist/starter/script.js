@@ -79,3 +79,8 @@ const x = movements.slice()
 x.push(11,22)
 console.log(x);
 console.log(movements);
+
+
+/*
+
+ */
