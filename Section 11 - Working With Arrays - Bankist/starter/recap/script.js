@@ -132,7 +132,16 @@ movements.forEach(function (mov, i, arr) {
 */
 
 
+const currencies = new Map([
+    ['USD', 'United States dollar'],
+    ['EUR', 'Euro'],
+    ['GBP', 'Pound sterling'],
+]);
 
+
+currencies.forEach(function (x,y,z) {
+    console.log(`${x} \n${y} \n${z}`);
+})
 
 
 
