@@ -75,7 +75,7 @@ const displayMovements = function (movements) {
     containerMovements.innerHTML = '';  // for clear old html data
 
     movements.forEach(function (mov, index) {
-        const type = index > 0 ? 'deposit' : 'withdrawal';
+        const type = mov > 0 ? 'deposit' : 'withdrawal';
 
         const html = `
         <div class="movements__row">

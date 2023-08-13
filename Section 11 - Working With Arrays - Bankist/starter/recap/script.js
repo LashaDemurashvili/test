@@ -171,11 +171,11 @@ console.log(arr.map((x) =>  x**2));
 
 
 function sum(...num){
-    console.log(num.reduce((x) => x));
+    console.log(num.reduce((x,y ) => x+y));
 }
 
 
-sum(11,2,2)
+sum(11,2,2,1,1,1,1,1)
 
 
 
