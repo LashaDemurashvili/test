@@ -162,9 +162,9 @@ currenciesUnique.forEach(function (value, _, map) {
 
 // ------------------------------------------------------------------------------------------------------------ NEW LINE
 
+
 /*
 /////////////////////////////////////////////////////////////////////////////// // The map Method
-
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 const eurToUsd = 1.1;
@@ -176,9 +176,10 @@ const eurToUsd = 1.1;
 
 ///////////////// using 'forof' method
 // const movementsUSDfor = [];
-// for (const mov of movements) movementsUSDfor.push(mov * eurToUsd);
+// for (const mov of movements) {
+//     movementsUSDfor.push(mov * eurToUsd);
+// }
 // console.log(movementsUSDfor);
-
 
 
 ////////////// using arrow function
@@ -192,6 +193,53 @@ const movementsDescriptions = movements.map(
         )}`
 );
 console.log(movementsDescriptions);
+
+//////////////////////////////////////////////////////////////////////////////////////////////////// END \
+*/
+
+
+// ------------------------------------------------------------------------------------------------------------ NEW LINE
+
+
+/*
+/////////////////////////////////////////////////////////////////////////////// side effects, map & forEach
+// Data
+
+// we have username
+const account0 = {
+    owner: 'Lasha Demurashvili',
+    movements: [100, 250, -270, 30, -150, -1130, -270, -100],
+    username: 'ldem',
+    interestRate: 1.2, // %
+    pin: 3333,
+};
+
+
+// we don't have username
+const account1 = {
+    owner: 'Jonas Schmedtmann',
+    movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+    interestRate: 1.2, // %
+    pin: 1111,
+};
+
+
+const accounts = [account0, account1];
+
+
+// side effects, 'do some work without returning anything.'
+// using forEach, because we need to modified current object
+const createUserName = function (accs) {
+    accs.forEach(function (acc) {
+        // when we use ||= operator, when 'username' exist, it's stay as it is, other-ways crete new one
+        acc.username ||= acc.owner.toLowerCase().split(' ').map(word => word[0]).join('');
+    });
+};
+
+createUserName(accounts);
+
+console.log(account0);  // remain original 'username'
+console.log(account1);  // create new username
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////// END \
@@ -210,6 +258,10 @@ console.log(movementsDescriptions);
 
 
 
+
+
+
+/////////////////
 
 // template
 

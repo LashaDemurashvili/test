@@ -5,6 +5,14 @@
 // BANKIST APP
 
 // Data
+const account0 = {
+    owner: 'Lasha Demurashvili',
+    movements: [100, 250, -270, 30, -150, -1130, -270, -100],
+    username: 'ldem',
+    interestRate: 1.2, // %
+    pin: 3333,
+};
+
 const account1 = {
     owner: 'Jonas Schmedtmann',
     movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
@@ -33,7 +41,7 @@ const account4 = {
     pin: 4444,
 };
 
-const accounts = [account1, account2, account3, account4];
+const accounts = [account0, account1, account2, account3, account4];
 
 // Elements
 const labelWelcome = document.querySelector('.welcome');
@@ -89,6 +97,17 @@ const displayMovements = function (movements) {
 };
 displayMovements(account1.movements);
 
+
+// side effects, 'do some work without returning anything.'
+// using forEach, because we need to modified current object
+const createUserName = function (accs) {
+    accs.forEach(function (acc) {
+        acc.username = acc.owner.toLowerCase().split(' ').map(word => word[0]).join('');
+    });
+};
+
+createUserName(accounts)
+console.log(account0);
 
 
 
