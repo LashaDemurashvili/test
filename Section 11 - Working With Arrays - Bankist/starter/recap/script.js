@@ -170,7 +170,12 @@ console.log(arr.map((x) =>  x**2));
 
 
 
+function sum(...num){
+    console.log(num.reduce((x) => x));
+}
 
+
+sum(11,2,2)
 
 
 
