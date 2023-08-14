@@ -246,8 +246,11 @@ console.log(account1);  // create new username
 */
 
 
+const x = [1,2,3,4]
 
 
+
+console.log(x);
 
 
 
