@@ -7,7 +7,7 @@
 // Data
 const account0 = {
     owner: 'Lasha Demurashvili',
-    movements: [100, 250, -270, 30, -150, -1130, -270, -100],
+    movements: [10000, 250, -270, 30, -150, -1130, -270, -100],
     username: 'ldem',
     interestRate: 1.2, // %
     pin: 3333,
@@ -95,7 +95,7 @@ const displayMovements = function (movements) {
         containerMovements.insertAdjacentHTML('afterbegin', html);
     });
 };
-displayMovements(account1.movements);
+displayMovements(account0.movements);
 
 
 // side effects, 'do some work without returning anything.'
@@ -107,9 +107,14 @@ const createUserName = function (accs) {
 };
 
 createUserName(accounts)
-console.log(account0);
+
+const calcDisplayBalance = function(acc){
+    acc.balance = acc.movements.reduce((acc, cur) => acc + cur, 0)
+    labelBalance.textContent = `${acc.balance}€`;
+}
 
 
+calcDisplayBalance(account0)
 
 
 
