@@ -247,9 +247,9 @@ console.log(account1);  // create new username
 
 
 const x = [1,2,3,4]
+const z = x.splice(0,x.length-1)
 
-
-
+console.log(z);
 console.log(x);
 
 
