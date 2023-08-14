@@ -113,7 +113,6 @@ const calcDisplayBalance = function(acc){
     labelBalance.textContent = `${acc.balance}€`;
 }
 
-
 calcDisplayBalance(account0)
 
 
