@@ -246,15 +246,12 @@ console.log(account1);  // create new username
 */
 
 
-const x = [1,2,3,4]
-const z = x.splice(0,x.length-1)
+const movements =  [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-console.log(z);
-console.log(x);
+const withdrawal = movements.filter(num =>  num < 0)
 
-
-
-
+// console.log(movements);
+console.log(withdrawal);
 
 
 
