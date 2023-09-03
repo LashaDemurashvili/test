@@ -95,7 +95,7 @@ const displayMovements = function (movements) {
         containerMovements.insertAdjacentHTML('afterbegin', html);
     });
 };
-displayMovements(account0.movements);
+// displayMovements(account0.movements);
 
 
 // side effects, 'do some work without returning anything.'
@@ -113,7 +113,7 @@ const calcDisplayBalance = function (acc) {
     labelBalance.textContent = `${acc.balance}€`;
 };
 
-calcDisplayBalance(account1);
+// calcDisplayBalance(account1);
 
 const calcDisplaySummary = function (acc) {
     const incomes = acc.movements
@@ -136,11 +136,31 @@ const calcDisplaySummary = function (acc) {
     labelSumInterest.textContent = `${interest}💶`;
 
 };
-calcDisplaySummary(account0);
+// calcDisplaySummary(account0);
+
+let currentAccount;
+
+btnLogin.addEventListener('click', function (e){
+    // Prevent form from submitting
+    // using preventDefault() to STOP auto refresh page(when we use 'form' in html, page automatically refreshed) (when we click ENTER, this same as click button, in 'form')
+    e.preventDefault()
+
+    currentAccount = accounts.find(acc => acc.username === inputLoginUsername.value)
+    console.log(currentAccount);
 
 
+    // currentAccount? - this mean, if currentAccount exist
+    if(currentAccount?.pin === Number(inputLoginPin.value)){
 
+        labelWelcome.textContent = `Welcome, ${currentAccount.owner.split(' ')[0].toUpperCase()}`;
 
+        containerApp.style.opacity = 100;
+
+        displayMovements(currentAccount.movements);
+        calcDisplayBalance(currentAccount);
+        calcDisplaySummary(currentAccount)
+    }
+})
 
 
 
