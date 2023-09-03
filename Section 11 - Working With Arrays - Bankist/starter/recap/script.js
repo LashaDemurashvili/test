@@ -353,6 +353,21 @@ console.log(avg1);
 */
 
 
+// ------------------------------------------------------------------------------------------------------------ NEW LINE
+
+/*
+/////////////////////////////////////////////////////////////////////////////// find
+// find method returns only one element(or nothing), if many element match find logic than which is first one
+const data1 = [2, 4, 6, 7, 11, 12, 13, 14];
+
+console.log(data1.find(x => x > 5)); // 6
+console.log(data1.find(x => x === 12)) // 12
+console.log(data1.find(x => x === 111)); // undefined
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////// END \
+*/
+
 
 
 
