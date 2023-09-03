@@ -334,6 +334,28 @@ console.log(totalDepositsUSD);
 */
 
 
+// ------------------------------------------------------------------------------------------------------------ NEW LINE
+
+/*
+/////////////////////////////////////////////////////////////////////////////// calculate average using reduce
+const data1 = [2, 2, 2, 2, 2];
+
+const calcAverage = function (numbers) {
+    return numbers.reduce((acc, curr, i, arr) => acc + curr / arr.length, 0);
+};
+
+const avg1 = calcAverage(data1);
+
+console.log(avg1);
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////// END \
+*/
+
+
+
+
+
 
 
 
