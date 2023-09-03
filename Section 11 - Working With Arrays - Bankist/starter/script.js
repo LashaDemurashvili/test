@@ -140,28 +140,38 @@ const calcDisplaySummary = function (acc) {
 
 let currentAccount;
 
-btnLogin.addEventListener('click', function (e){
+// submit button
+btnLogin.addEventListener('click', function (e) {
     // Prevent form from submitting
     // using preventDefault() to STOP auto refresh page(when we use 'form' in html, page automatically refreshed) (when we click ENTER, this same as click button, in 'form')
-    e.preventDefault()
+    e.preventDefault();
 
-    currentAccount = accounts.find(acc => acc.username === inputLoginUsername.value)
+    currentAccount = accounts.find(acc => acc.username === inputLoginUsername.value);
     console.log(currentAccount);
 
-
+    // optional chaining method
     // currentAccount? - this mean, if currentAccount exist
-    if(currentAccount?.pin === Number(inputLoginPin.value)){
+    if (currentAccount?.pin === Number(inputLoginPin.value)) {
 
         labelWelcome.textContent = `Welcome, ${currentAccount.owner.split(' ')[0].toUpperCase()}`;
 
         containerApp.style.opacity = 100;
 
-        displayMovements(currentAccount.movements);
-        calcDisplayBalance(currentAccount);
-        calcDisplaySummary(currentAccount)
-    }
-})
+        // clear form
+        inputLoginUsername.value = inputLoginPin.value = ''
 
+        // Display movements
+        displayMovements(currentAccount.movements);
+
+        // Display balance
+        calcDisplayBalance(currentAccount);
+
+        // Display summary
+        calcDisplaySummary(currentAccount);
+    } else {
+        alert("Wrong username or password")
+    }
+});
 
 
 /*
