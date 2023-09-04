@@ -10,7 +10,7 @@ const account0 = {
     movements: [10000, 250, -270, 30, -150, -1130, -270, -100],
     username: 'ldem',
     interestRate: 1.2, // %
-    pin: 3333,
+    pin: 3,
 };
 
 const account1 = {
@@ -79,10 +79,10 @@ const currencies = new Map([
     ['GBP', 'Pound sterling'],
 ]);
 
-const displayMovements = function (movements) {
+const displayMovements = function (acc) {
     containerMovements.innerHTML = '';  // for clear old html data
 
-    movements.forEach(function (mov, index) {
+    acc.movements.forEach(function (mov, index) {
         const type = mov > 0 ? 'deposit' : 'withdrawal';
 
         const html = `
@@ -138,16 +138,30 @@ const calcDisplaySummary = function (acc) {
 };
 // calcDisplaySummary(account0);
 
+
+const updateUI = function (acc) {
+    // Display movements
+    displayMovements(acc);
+
+    // Display balance
+    calcDisplayBalance(acc);
+
+    // Display summary
+    calcDisplaySummary(acc);
+}
+
+
 let currentAccount;
 
 // submit button
 btnLogin.addEventListener('click', function (e) {
     // Prevent form from submitting
-    // using preventDefault() to STOP auto refresh page(when we use 'form' in html, page automatically refreshed) (when we click ENTER, this same as click button, in 'form')
+    // using preventDefault() to STOP auto refresh page(when we use 'form' in html, page automatically refreshed)
+    // (when we click ENTER, this same as click button, in 'form')
     e.preventDefault();
 
     currentAccount = accounts.find(acc => acc.username === inputLoginUsername.value);
-    console.log(currentAccount);
+    // console.log(currentAccount);
 
     // optional chaining method
     // currentAccount? - this mean, if currentAccount exist
@@ -158,20 +172,30 @@ btnLogin.addEventListener('click', function (e) {
         containerApp.style.opacity = 100;
 
         // clear form
-        inputLoginUsername.value = inputLoginPin.value = ''
+        inputLoginUsername.value = inputLoginPin.value = '';
 
-        // Display movements
-        displayMovements(currentAccount.movements);
+        updateUI(currentAccount)
 
-        // Display balance
-        calcDisplayBalance(currentAccount);
-
-        // Display summary
-        calcDisplaySummary(currentAccount);
     } else {
-        alert("Wrong username or password")
+        alert("Wrong username or password");
     }
 });
+
+
+btnTransfer.addEventListener('click', function(e){
+    e.preventDefault()
+
+    const amount = Number(inputTransferAmount.value);
+    const receiverAccount = accounts.find(acc => acc.username === inputTransferTo.value)
+
+    if (amount > 0 && amount <= currentAccount.balance && receiverAccount && receiverAccount.username !== currentAccount.username){
+        console.log(receiverAccount);
+    }
+
+
+    updateUI(currentAccount)
+
+})
 
 
 /*
