@@ -7,7 +7,7 @@
 // Data
 const account0 = {
     owner: 'Lasha Demurashvili',
-    movements: [10000, 250, -270, 30, -150, -1130, -270, -100],
+    movements: [10000, 250, -270, 30, -150, -1130, -270, -100, 1000, 2000, 3000, 70],
     username: 'ldem',
     interestRate: 1.2, // %
     pin: 3,
@@ -111,12 +111,12 @@ const createUserName = function (accs) {
 };
 createUserName(accounts);
 
-const createAccsOwnName = function(accounts){
-    accounts.forEach(function(acc) {
-        acc.owner_name = acc.owner.split(' ')[0].toUpperCase()
-    })
-}
-createAccsOwnName(accounts)
+const createAccsOwnName = function (accounts) {
+    accounts.forEach(function (acc) {
+        acc.owner_name = acc.owner.split(' ')[0].toUpperCase();
+    });
+};
+createAccsOwnName(accounts);
 
 const calcDisplayBalance = function (acc) {
     acc.balance = acc.movements.reduce((acc, cur) => acc + cur, 0);
@@ -144,7 +144,7 @@ const calcDisplaySummary = function (acc) {
         })
         .reduce((acc, cur) => acc + cur, 0);
 
-    labelSumInterest.textContent = `${interest}💶`;
+    labelSumInterest.textContent = `${interest.toFixed(2)}💶`;
 };
 // calcDisplaySummary(account0);
 
@@ -172,23 +172,16 @@ btnLogin.addEventListener('click', function (e) {
     currentAccount = accounts.find(acc => acc.username === inputLoginUsername.value);
     // console.log(currentAccount);
 
-    console.log(currentAccount);
-
-
-
     // optional chaining method
     // currentAccount? - this mean, if currentAccount exist
     if (currentAccount?.pin === Number(inputLoginPin.value)) {
-
         labelWelcome.textContent = `Welcome, ${currentAccount.owner_name}`;
-
         containerApp.style.opacity = 100;
 
         // clear form
         inputLoginUsername.value = inputLoginPin.value = '';
 
         updateUI(currentAccount);
-
     } else {
         alert("Wrong username or password");
     }
@@ -201,20 +194,27 @@ btnTransfer.addEventListener('click', function (e) {
     const amount = Number(inputTransferAmount.value);
     const receiverAccount = accounts.find(acc => acc.username === inputTransferTo.value);
 
-    inputTransferAmount.value = inputTransferTo.value = ''
+    inputTransferAmount.value = inputTransferTo.value = '';
     if (amount > 0 && amount <= currentAccount.balance && receiverAccount && receiverAccount.username !== currentAccount.username) {
-        // console.log(receiverAccount);
-        // console.log('valid');
         currentAccount.movements.push(-amount);
         receiverAccount.movements.push(amount);
+
         updateUI(currentAccount);
 
+        // console.log(receiverAccount);
+        // console.log('valid');
     } else {
         // console.log('Not valid');
     }
-
-
 });
+
+
+
+
+
+
+
+
 
 
 /*
