@@ -102,11 +102,21 @@ const displayMovements = function (acc) {
 // using forEach, because we need to modified current object
 const createUserName = function (accs) {
     accs.forEach(function (acc) {
-        acc.username = acc.owner.toLowerCase().split(' ').map(word => word[0]).join('');
+        acc.username = acc.owner
+            .toLowerCase()
+            .split(' ')
+            .map(word => word[0])
+            .join('');
     });
 };
-
 createUserName(accounts);
+
+const createAccsOwnName = function(accounts){
+    accounts.forEach(function(acc) {
+        acc.owner_name = acc.owner.split(' ')[0].toUpperCase()
+    })
+}
+createAccsOwnName(accounts)
 
 const calcDisplayBalance = function (acc) {
     acc.balance = acc.movements.reduce((acc, cur) => acc + cur, 0);
@@ -133,8 +143,8 @@ const calcDisplaySummary = function (acc) {
             return int >= 1;
         })
         .reduce((acc, cur) => acc + cur, 0);
-    labelSumInterest.textContent = `${interest}💶`;
 
+    labelSumInterest.textContent = `${interest}💶`;
 };
 // calcDisplaySummary(account0);
 
@@ -148,33 +158,36 @@ const updateUI = function (acc) {
 
     // Display summary
     calcDisplaySummary(acc);
-}
+};
 
-
-let currentAccount;
 
 // submit button
+let currentAccount;
 btnLogin.addEventListener('click', function (e) {
-    // Prevent form from submitting
-    // using preventDefault() to STOP auto refresh page(when we use 'form' in html, page automatically refreshed)
+    // Prevent form from submit
+    // using preventDefault() to STOP auto refresh page(when we use 'form' in html, page automatically refreshed after submit button)
     // (when we click ENTER, this same as click button, in 'form')
     e.preventDefault();
 
     currentAccount = accounts.find(acc => acc.username === inputLoginUsername.value);
     // console.log(currentAccount);
 
+    console.log(currentAccount);
+
+
+
     // optional chaining method
     // currentAccount? - this mean, if currentAccount exist
     if (currentAccount?.pin === Number(inputLoginPin.value)) {
 
-        labelWelcome.textContent = `Welcome, ${currentAccount.owner.split(' ')[0].toUpperCase()}`;
+        labelWelcome.textContent = `Welcome, ${currentAccount.owner_name}`;
 
         containerApp.style.opacity = 100;
 
         // clear form
         inputLoginUsername.value = inputLoginPin.value = '';
 
-        updateUI(currentAccount)
+        updateUI(currentAccount);
 
     } else {
         alert("Wrong username or password");
@@ -182,20 +195,26 @@ btnLogin.addEventListener('click', function (e) {
 });
 
 
-btnTransfer.addEventListener('click', function(e){
-    e.preventDefault()
+btnTransfer.addEventListener('click', function (e) {
+    e.preventDefault();
 
     const amount = Number(inputTransferAmount.value);
-    const receiverAccount = accounts.find(acc => acc.username === inputTransferTo.value)
+    const receiverAccount = accounts.find(acc => acc.username === inputTransferTo.value);
 
-    if (amount > 0 && amount <= currentAccount.balance && receiverAccount && receiverAccount.username !== currentAccount.username){
-        console.log(receiverAccount);
+    inputTransferAmount.value = inputTransferTo.value = ''
+    if (amount > 0 && amount <= currentAccount.balance && receiverAccount && receiverAccount.username !== currentAccount.username) {
+        // console.log(receiverAccount);
+        // console.log('valid');
+        currentAccount.movements.push(-amount);
+        receiverAccount.movements.push(amount);
+        updateUI(currentAccount);
+
+    } else {
+        // console.log('Not valid');
     }
 
 
-    updateUI(currentAccount)
-
-})
+});
 
 
 /*
