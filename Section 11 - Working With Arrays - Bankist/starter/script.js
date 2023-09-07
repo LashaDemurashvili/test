@@ -209,28 +209,41 @@ btnTransfer.addEventListener('click', function (e) {
 });
 
 // delete account
-btnClose.addEventListener('click', function(e){
-    e.preventDefault()
+btnClose.addEventListener('click', function (e) {
+    e.preventDefault();
 
-    if (inputCloseUsername.value === currentAccount.username && Number(inputClosePin.value) === currentAccount.pin){
+    if (inputCloseUsername.value === currentAccount.username && Number(inputClosePin.value) === currentAccount.pin) {
         const indexOfAccount = accounts.findIndex(account => account.username === currentAccount.username);
 
         // delete account on this position
-        accounts.splice(indexOfAccount, 1)
+        accounts.splice(indexOfAccount, 1);
 
         // hide app
         containerApp.style.opacity = 0;
     }
-    inputCloseUsername.value = inputClosePin.value = ''
-})
+    inputCloseUsername.value = inputClosePin.value = '';
+});
 
+
+btnLoan.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    const amount = Number(inputLoanAmount.value);
+
+    // if any number is more than 10% of requested loan
+    if (amount > 0 && currentAccount.movements.some((x) => x >= amount * 0.1)) {
+        currentAccount.movements.push(amount);
+
+        updateUI(currentAccount);
+    }
+    inputLoanAmount.value = '';
+});
 
 
 
 
 
 /*
-
 
 
  */

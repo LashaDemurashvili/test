@@ -371,6 +371,7 @@ console.log(data1.find(x => x === 111)); // undefined
 
 // ------------------------------------------------------------------------------------------------------------ NEW LINE
 
+
 /*
 /////////////////////////////////////////////////////////////////////////////// findIndex
 // Data
@@ -398,8 +399,38 @@ const indexOfAccount = accounts.findIndex((account) => {
 
 console.log(indexOfAccount);
 
+account = accounts.find(x => x.username === 'ldem')
+console.log(account);
+
 //////////////////////////////////////////////////////////////////////////////////////////////////// END \
 */
+
+
+// ------------------------------------------------------------------------------------------------------------ NEW LINE
+
+/*
+/////////////////////////////////////////////////////////////////////////////// some and every
+const movements = [200, 450, 400, 3000, 650, 130, 70, 1300];
+console.log(movements.some(x => x > 4000));
+console.log(movements.some(x => x > 2000));
+console.log(movements.some(x => x > 6000));
+
+console.log();
+
+console.log(movements.every(x => x > 1000));
+console.log(movements.every(x => x > 100));
+console.log(movements.every(x => x > 10));
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////// END \
+*/
+
+
+
+
+
+
 
 
 
