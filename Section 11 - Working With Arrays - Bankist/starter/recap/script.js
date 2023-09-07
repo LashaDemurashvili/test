@@ -369,7 +369,37 @@ console.log(data1.find(x => x === 111)); // undefined
 */
 
 
+// ------------------------------------------------------------------------------------------------------------ NEW LINE
 
+/*
+/////////////////////////////////////////////////////////////////////////////// findIndex
+// Data
+const account0 = {
+    owner: 'Lasha Demurashvili',
+    movements: [10000, 250, -270, 30, -150, -1130, -270, -100, 1000, 2000, 3000, 70],
+    username: 'ldem',
+    interestRate: 1.2, // %
+    pin: 3,
+};
+
+const account1 = {
+    owner: 'Jonas Schmedtmann',
+    username: 'Jonas',
+    movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+    interestRate: 1.2, // %
+    pin: 1111,
+};
+
+const accounts = [account0, account1];
+
+const indexOfAccount = accounts.findIndex((account) => {
+    return account.username === 'ldem';
+});
+
+console.log(indexOfAccount);
+
+//////////////////////////////////////////////////////////////////////////////////////////////////// END \
+*/
 
 
 

@@ -219,8 +219,7 @@ btnClose.addEventListener('click', function(e){
         accounts.splice(indexOfAccount, 1)
 
         // hide app
-        // containerApp.style.opacity = 0;
-        updateUI(currentAccount)
+        containerApp.style.opacity = 0;
     }
     inputCloseUsername.value = inputClosePin.value = ''
 })
