@@ -7,7 +7,7 @@
 // Data
 const account0 = {
     owner: 'Lasha Demurashvili',
-    movements: [[10000, 250, [10000, 250]], -270, 30, -150, -1130, -270, -100, 1000, 2000, 3000, 70],
+    movements: [10000, 250, -270, 30, -150, -1130, -270, -100, 1000, 2000, 3000, 70],
     username: 'ldem',
     interestRate: 1.2, // %
     pin: 3,
@@ -79,10 +79,13 @@ const currencies = new Map([
     ['GBP', 'Pound sterling'],
 ]);
 
-const displayMovements = function (acc) {
+const displayMovements = function (movements, sort=false) {
     containerMovements.innerHTML = '';  // for clear old html data
 
-    acc.movements.forEach(function (mov, index) {
+    // using slice() for copying entire array
+    const newMovements = sort ? movements.slice().sort((a,b) => a-b) : movements
+
+    newMovements.forEach(function (mov, index) {
         const type = mov > 0 ? 'deposit' : 'withdrawal';
 
         const html = `
@@ -151,7 +154,7 @@ const calcDisplaySummary = function (acc) {
 
 const updateUI = function (acc) {
     // Display movements
-    displayMovements(acc);
+    displayMovements(acc.movements);
 
     // Display balance
     calcDisplayBalance(acc);
@@ -239,9 +242,17 @@ btnLoan.addEventListener('click', function (e) {
     inputLoanAmount.value = '';
 });
 
+let sorted = false;
+btnSort.addEventListener('click', function(e){
+    e.preventDefault()
+    displayMovements(currentAccount.movements, !sorted)
+
+    // toggle
+    sorted = !sorted
+})
 
 
-
+console.log(sorted);
 
 
 

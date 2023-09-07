@@ -488,7 +488,28 @@ console.log(x);
 */
 
 
+// ------------------------------------------------------------------------------------------------------------ NEW LINE
+
+
+/*
+/////////////////////////////////////////////////////////////////////////////// // Sorting Arrays
 // Strings
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////// END \
+*/
+
+
 const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
 console.log(owners.sort());
 console.log(owners);
@@ -496,23 +517,23 @@ console.log(owners);
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-movements.sort((a,b) => {
-    // a - current
-    // b - next
-    if(a>b){
-        return 1
+movements.sort((a, b) => {
+    // a - current; b - next
+    if (a > b) {
+        return 1;  // keep position
     }
-    if(b > a){
-        return -1
+    if (a < b) {
+        return -1;  // swap position
     }
-})
+});
 
 // 0-10
-movements.sort((a,b) => a-b)
-
+movements.sort((a, b) => a - b);
 
 // 10-0
-movements.sort((a,b) => b-a)
+movements.sort((a, b) => b - a);
+
+
 console.log(movements);
 
 
@@ -520,7 +541,6 @@ console.log(movements);
 
 
 
-/////////////////
 
 // template
 
