@@ -422,11 +422,70 @@ console.log(movements.every(x => x > 100));
 console.log(movements.every(x => x > 10));
 
 
+// Separate callback-Separate callback-Separate callback-Separate callback-Separate callback- //
+const deposit = mov => mov > 0;
+console.log(movements.some(deposit));
+console.log(movements.every(deposit));
+console.log(movements.filter(deposit));
 
 //////////////////////////////////////////////////////////////////////////////////////////////////// END \
 */
 
 
+// ------------------------------------------------------------------------------------------------------------ NEW LINE
+
+
+/*
+/////////////////////////////////////////////////////////////////////////////// // flat and flatMap
+const account0 = {
+    movements: [[10000, 250, [10000, 250]], -270, 30, -150, -1130, -270],
+};
+
+const account1 = {
+    movements: [[10000, 250, [10000, 250]], -270, 30, -150, -1130, -270],
+};
+
+const account2 = {
+    movements: [[10000, 250, [10000, 250]], -270, 30, -150, -1130, -270],
+};
+
+const accounts = [account0, account1, account2]
+
+
+// flat
+const overalBalance = accounts
+    .map(acc => acc.movements)
+
+    // using big number, because we don't know how many inner array are in the array
+    .flat(11)
+    .reduce((acc, mov) => acc + mov, 0);
+
+console.log(overalBalance);
+
+
+
+const data1 = {
+    movements: [1, 2, 3, 4, 5, 6, 7, 8],
+};
+
+const data2 = {
+    movements: [1, 2, 3, 4, 5, 6, 7, 8],
+};
+
+const dates = [data1, data2]
+
+
+// flatMap
+const x = dates
+    .flatMap(dt => dt.movements)
+    .reduce((a, c) => a + c, 0);
+
+console.log(x);
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////// END \
+*/
 
 
 

@@ -7,7 +7,7 @@
 // Data
 const account0 = {
     owner: 'Lasha Demurashvili',
-    movements: [10000, 250, -270, 30, -150, -1130, -270, -100, 1000, 2000, 3000, 70],
+    movements: [[10000, 250, [10000, 250]], -270, 30, -150, -1130, -270, -100, 1000, 2000, 3000, 70],
     username: 'ldem',
     interestRate: 1.2, // %
     pin: 3,
@@ -240,6 +240,12 @@ btnLoan.addEventListener('click', function (e) {
 });
 
 
+
+
+
+
+
+///////////////////////////////////////
 
 
 
