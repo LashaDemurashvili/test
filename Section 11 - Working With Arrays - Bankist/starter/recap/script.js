@@ -488,10 +488,32 @@ console.log(x);
 */
 
 
+// Strings
+const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
+console.log(owners.sort());
+console.log(owners);
 
 
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+movements.sort((a,b) => {
+    // a - current
+    // b - next
+    if(a>b){
+        return 1
+    }
+    if(b > a){
+        return -1
+    }
+})
+
+// 0-10
+movements.sort((a,b) => a-b)
 
 
+// 10-0
+movements.sort((a,b) => b-a)
+console.log(movements);
 
 
 
