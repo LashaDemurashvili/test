@@ -3,12 +3,16 @@
 
 // Show the custom popup
 const modal = document.getElementById("myModal");
-modal.style.display = "block";
+// modal.style.display = "block";
+
+
 
 // Close the popup after 2 seconds
 setTimeout(function() {
     modal.style.display = "none";
-}, 2000);
+}, 3000);
+
+
 
 // Close the popup when the close button is clicked
 const closeButton = document.querySelector(".close");
@@ -17,14 +21,7 @@ closeButton.addEventListener("click", function() {
 });
 
 
-// test
-// test
-// test
-// test
-// test
-// test
-// test
-// test
+
 
 
 
