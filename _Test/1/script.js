@@ -1,5 +1,7 @@
 'use strict'
 
+/*
+
 
 // Show the custom popup
 const modal = document.getElementById("myModal");
@@ -20,11 +22,24 @@ closeButton.addEventListener("click", function() {
     modal.style.display = "none";
 });
 
+
+*/
+
+
 let sec;
 
-document.body.addEventListener('click', function(){
+let obj = {
+    'youtube.com': 0, 
+    'translate.google.com': 0,
+    'google.com': 0 
+}
+
+
+const butt1 = document.getElementById('btn--1')
+
+butt1.addEventListener('click', function(){
     // data
-    const web_arr = ['youtube.com', 'translate.ge', 'google.com']
+    const web_arr = ['youtube.com', 'translate.google.com', 'google.com']
     
     // random number 
     let fir = Math.trunc(Math.random() * 3)
@@ -34,6 +49,8 @@ document.body.addEventListener('click', function(){
     } while ( fir === sec)
     sec = fir;
 
+    obj[web_arr[fir]]++;
+
     // logic
     const url_a = 'https://' + web_arr[fir]
     // window.open(url_a, '_blanck')
@@ -42,6 +59,24 @@ document.body.addEventListener('click', function(){
     console.log(`${fir} - ${url_a}`);
 })
 
+
+const butt2 = document.getElementById('btn--2')
+butt2.addEventListener('click', function(){
+    console.clear()
+
+    const web_arr = ['youtube.com', 'translate.google.com', 'google.com']
+
+    let sum = 0 
+
+    for (const i in obj) {
+        sum += obj[i]
+    }
+
+    for(let i of web_arr){
+        console.log(`${i} - ${Math.round(obj[i]/sum*100)}%`);
+    }
+
+});
 
 
 
