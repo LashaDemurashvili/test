@@ -34,13 +34,11 @@ let obj = {
     'google.com': 0 
 }
 
-
+// data
+const web_arr = ['youtube.com', 'translate.google.com', 'google.com']
 const butt1 = document.getElementById('btn--1')
 
 butt1.addEventListener('click', function(){
-    // data
-    const web_arr = ['youtube.com', 'translate.google.com', 'google.com']
-    
     // random number 
     let fir = Math.trunc(Math.random() * 3)
 
@@ -64,43 +62,25 @@ const butt2 = document.getElementById('btn--2')
 butt2.addEventListener('click', function(){
     console.clear()
 
-    const web_arr = ['youtube.com', 'translate.google.com', 'google.com']
-
     let sum = 0 
 
     for (const i in obj) {
         sum += obj[i]
     }
 
-    for(let i of web_arr){
-        console.log(`${i} - ${Math.round(obj[i]/sum*100)}%`);
-    }
+    // for(let i of web_arr){
+    //     console.log(`${i} - ${Math.round(obj[i]/sum*100)}%`);
+    // }
+
+    Object.entries(obj).forEach(([key, value]) => {
+        console.log(`${key} - ${Math.round(value/sum*100)}%`);
+    });
+
+    
 
 });
 
 
-
-/*
-/////////////////////////////////////////////////////////////////////////////// wwwwwwwwwwwwwwwwwwwwww_CODE_TITLE
-CODE_HERE
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////// END \
-*/
-
-
-// ------------------------------------------------------------------------------------------------------------ NEW LINE
-
-
-// // Show the popup
-// alert("This is a popup!");
-//
-// // Close the popup after 2 seconds
-// setTimeout(function() {
-//     alert.close(); // This won't work for standard alerts, use custom modals for more control
-// }, 2000);
-//
-//
 
 
 
