@@ -518,8 +518,34 @@ movements.sort((a, b) => a - b);
 // 10-0
 movements.sort((a, b) => b - a);
 
-
 console.log(movements);
+
+//////////////////////////////////////////////////////////////////////////////////////////////////// END \
+*/
+
+// ------------------------------------------------------------------------------------------------------------ NEW LINE
+
+/*
+//////////////////////////////////////////////////////////////////////////// More Ways of Creating and Filling Arrays
+const arr = [1, 2, 3, 4, 5, 6, 7];
+console.log(Array(1, 2, 3, 4, 5, 6, 7, 8));
+
+// Empty arrays + fill method
+const x = new Array(7)  // this array is empty
+x.fill(7)
+console.log(x);
+
+/////// value; start; end
+// x.fill(1,3,5)
+// console.log(x);
+
+// Array.from
+const y = Array.from({length: 11}, () => 2)
+console.log(y);
+
+// using underscore, because we don't use
+const z = Array.from({length: 7}, (_,i) => i+10)
+console.log(z);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////// END \
 */
@@ -528,15 +554,20 @@ console.log(movements);
 
 
 
+/*
+// floating-point numbers
+console.log(0.5 + 0.1 === 0.6);  // true
+console.log(0.3 + 0.2 === 0.3);  // false
+
+// now result will be true
+let xx = 0.1 * 10
+let yy = 0.2 * 10
+console.log((xx + yy)/10 === 0.3);
+ */
 
 
 
-
-
-
-
-
-
+//
 // template
 
 // ------------------------------------------------------------------------------------------------------------ NEW LINE
