@@ -20,8 +20,27 @@ closeButton.addEventListener("click", function() {
     modal.style.display = "none";
 });
 
+let sec;
 
+document.body.addEventListener('click', function(){
+    // data
+    const web_arr = ['youtube.com', 'translate.ge', 'google.com']
+    
+    // random number 
+    let fir = Math.trunc(Math.random() * 3)
 
+    do{
+        fir = Math.trunc(Math.random() * 3)
+    } while ( fir === sec)
+    sec = fir;
+
+    // logic
+    const url_a = 'https://' + web_arr[fir]
+    // window.open(url_a, '_blanck')
+
+    document.querySelector('.txt').textContent = `${url_a}`
+    console.log(`${fir} - ${url_a}`);
+})
 
 
 
