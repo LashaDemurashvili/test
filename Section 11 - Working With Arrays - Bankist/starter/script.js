@@ -79,11 +79,11 @@ const currencies = new Map([
     ['GBP', 'Pound sterling'],
 ]);
 
-const displayMovements = function (movements, sort=false) {
+const displayMovements = function (movements, sort = false) {
     containerMovements.innerHTML = '';  // for clear old html data
 
     // using slice() for copying entire array
-    const newMovements = sort ? movements.slice().sort((a,b) => a-b) : movements
+    const newMovements = sort ? movements.slice().sort((a, b) => a - b) : movements;
 
     newMovements.forEach(function (mov, index) {
         const type = mov > 0 ? 'deposit' : 'withdrawal';
@@ -243,24 +243,29 @@ btnLoan.addEventListener('click', function (e) {
 });
 
 let sorted = false;
-btnSort.addEventListener('click', function(e){
-    e.preventDefault()
-    displayMovements(currentAccount.movements, !sorted)
+btnSort.addEventListener('click', function (e) {
+    e.preventDefault();
+    displayMovements(currentAccount.movements, !sorted);
 
     // toggle
-    sorted = !sorted
-})
-
+    sorted = !sorted;
+});
 
 console.log(sorted);
 
+///////////////////////////////////////////////////////////////////////////////////////////////
+// Array Methods Practice
+
+// using - 'map'; 'flat'; 'filter'; 'reduce'
+
+const bankDepositSum = accounts
+    .flatMap(acc => acc.movements)
+    .filter(x => x > 0)
+    .reduce((acc, cur) => acc + cur, 0);
+
+console.log(bankDepositSum);
 
 
-///////////////////////////////////////
 
 
 
-/*
-
-
- */
