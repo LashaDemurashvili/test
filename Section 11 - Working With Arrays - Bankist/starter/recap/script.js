@@ -576,16 +576,13 @@ console.log(y.split('-'));
 // ------------------------------------------------------------------------------------------------------------ NEW LINE
 
 
-const arr = [100, 100, 100, -100]
 
-const y = arr
-    // .filter(x => x > 0)
-    .reduce((acc, cur)=> acc+cur)
+const y = ['a', 'b', 'c'];
 
+y.forEach(function(x) {
+    console.log(x)
 
-console.log(y);
-
-
+});
 
 
 
