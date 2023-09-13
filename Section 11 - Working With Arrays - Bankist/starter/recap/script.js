@@ -1,3 +1,45 @@
+// Data
+const account0 = {
+    owner: 'Lasha Demurashvili',
+    movements: [10000, 250, -270, 30, -150, -1130, -270, -100, 1000, 2000, 3000, 70],
+    username: 'ldem',
+    interestRate: 1.2, // %
+    pin: 3,
+};
+
+const account1 = {
+    owner: 'Jonas Schmedtmann',
+    movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+    interestRate: 1.2, // %
+    pin: 1111,
+};
+
+const account2 = {
+    owner: 'Jessica Davis',
+    movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
+    interestRate: 1.5,
+    pin: 2222,
+};
+
+const account3 = {
+    owner: 'Steven Thomas Williams',
+    movements: [200, -200, 340, -300, -20, 50, 400, -460],
+    interestRate: 0.7,
+    pin: 3333,
+};
+
+const account4 = {
+    owner: 'Sarah Smith',
+    movements: [430, 1000, 700, 50, 90],
+    interestRate: 1,
+    pin: 4444,
+};
+
+const accounts = [account0, account1, account2, account3, account4];
+
+
+// ------------------------------------------------------------------------------------------------------------ NEW LINE
+
 /*
 ///////////////////////////////////////////////////////////////////////////////// Simple Array Methods
 
@@ -575,20 +617,115 @@ console.log(y.split('-'));
 
 // ------------------------------------------------------------------------------------------------------------ NEW LINE
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////// Useful
+////////////////////////////////////////////////////////////////////////////// Array Methods Practice
+// 1 - 2
+
+/*
+// using - 'map'; 'flat'; 'filter'; 'reduce'
+// 1.
+const bankDepositSum = accounts
+    .flatMap(acc => acc.movements)
+    .filter(x => x > 0)
+    .reduce((acc, cur) => acc + cur, 0);
+
+console.log(bankDepositSum);
 
 
-const y = ['a', 'b', 'c'];
+// 2.
+// const numDeposits3000 = accounts
+//     .flatMap(acc => acc.movements)
+//     .filter(x => x >= 3000)
+//     .length
 
-y.forEach(function(x) {
-    console.log(x)
-
-});
-
-
-
+// console.log(numDeposits3000);
 
 
-//
+// using reduce to count filtered numbers
+// Prefixed ++ operator
+const numDeposits3000Reduce = accounts
+    .flatMap(acc => acc.movements)
+    .reduce((acc, cur) => (cur >= 3000 ? ++acc : acc), 0);
+
+// .reduce((acc, cur) => (cur >= 3000 ? acc + 1 : acc), 0)
+
+// explain code ---->
+// if current number >= 3000 : acc + 1
+// else : stay as it was
+// start counting from 0 - it's more important part,
+// besides that, we get a wrong number
+
+
+// log array
+console.log(accounts
+    .flatMap(acc => acc.movements
+        .filter(x => x >= 3000)));
+
+console.log(numDeposits3000Reduce);
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ */
+
+
+// ------------------------------------------------------------------------------------------------------------ NEW LINE
+
+
+/*
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// 3.
+// option 1
+const sumsMain = accounts
+    .flatMap(acc => acc.movements)
+    .reduce((sum, cur) => {
+        cur > 0 ? (sum.deposit += cur) : (sum.withdrawal += cur);
+        return sum;
+    }, {deposit: 0, withdrawal: 0});
+
+console.log(sumsMain);
+
+
+// option 2
+const {d, w} = accounts
+    .flatMap(acc => acc.movements)
+    .reduce((a, c) => {
+        c > 0 ? a.d += c : a.w += c;
+        return a;
+    }, {d: 0, w: 0});
+
+console.log(d);
+console.log(w);
+
+
+/////////////////////////////////////////////
+// option 3 - better
+const {deposit, withdrawal} = accounts
+    .flatMap(acc => acc.movements)
+    .reduce((sum, cur) => {
+        sum[cur > 0 ? 'deposit' : 'withdrawal'] += cur;
+        return sum;
+    }, {deposit: 0, withdrawal: 0});
+
+console.log(deposit);
+console.log(withdrawal);
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
 // template
 
 // ------------------------------------------------------------------------------------------------------------ NEW LINE
