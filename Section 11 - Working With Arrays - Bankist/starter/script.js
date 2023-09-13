@@ -257,7 +257,7 @@ console.log(sorted);
 // Array Methods Practice
 
 // using - 'map'; 'flat'; 'filter'; 'reduce'
-
+// 1.
 const bankDepositSum = accounts
     .flatMap(acc => acc.movements)
     .filter(x => x > 0)
@@ -266,6 +266,32 @@ const bankDepositSum = accounts
 console.log(bankDepositSum);
 
 
+// 2.
+// const numDeposits3000 = accounts
+//     .flatMap(acc => acc.movements)
+//     .filter(x => x >= 3000)
+//     .length
+
+// console.log(numDeposits3000);
 
 
+// using reduce to count filtered numbers
+const numDeposits3000Reduce = accounts
+    .flatMap(acc => acc.movements)
+    .reduce((acc, cur) => (cur >= 3000 ? ++acc : acc), 0)
 
+    // .reduce((acc, cur) => (cur >= 3000 ? acc + 1 : acc), 0)
+
+    // if current number >= 3000 : acc + 1
+    // else : stay as it was
+    // start counting from 0 - it's more important part,
+    // besides that, we get a wrong number
+
+
+// log array
+console.log(accounts
+    .flatMap(acc => acc.movements
+    .filter(x => x >= 3000)
+));
+
+console.log(numDeposits3000Reduce);
