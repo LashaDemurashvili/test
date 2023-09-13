@@ -719,7 +719,7 @@ console.log(withdrawal);
 // ------------------------------------------------------------------------------------------------------------ NEW LINE
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////// Title - text
 // 4.
 // Example:  this is a nice title -> This Is a Nice Title
 
@@ -741,6 +741,8 @@ const convertTitleCase = function (text) {
 console.log(convertTitleCase('this is a nice title'));
 console.log(convertTitleCase('this is a LONG title but not too long'));
 console.log(convertTitleCase('and here is another title with an EXAMPLE'));
+
+
 
 
 // template
