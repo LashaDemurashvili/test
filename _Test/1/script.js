@@ -38,21 +38,19 @@ let obj = {
 const web_arr = ['youtube.com', 'translate.google.com', 'google.com']
 const butt1 = document.getElementById('btn--1')
 
+
+const colorObj = {
+    'youtube.com': 'y',
+    'translate.google.com': 'g',
+    'google.com': 't',
+} 
+
+
 const colorFunc = function(text){
     document.querySelector('.txt').classList.remove('y', 'g', 't')
 
-    
-    if(text.replace('https://', '') == 'youtube.com'){
-        document.querySelector('.txt').classList.add('y')
-        return text
-    }
-
-    else if(text.replace('https://', '') == 'translate.google.com'){
-        document.querySelector('.txt').classList.add('t')
-        return text
-    }
-    else if(text.replace('https://', '') == 'google.com'){
-        document.querySelector('.txt').classList.add('g')
+    if(true){
+        document.querySelector('.txt').classList.add(colorObj[text])
         return text
     }
 }
@@ -66,13 +64,14 @@ butt1.addEventListener('click', function(){
     } while ( fir === sec)
     sec = fir;
 
-    obj[web_arr[fir]]++;
+    const cur = web_arr[fir]
+    obj[cur]++;
 
     // logic
     const url_a = 'https://' + web_arr[fir]
     // window.open(url_a, '_blanck')
 
-    document.querySelector('.txt').textContent = colorFunc(url_a)
+    document.querySelector('.txt').textContent = colorFunc(cur)
     console.log(`${fir} - ${url_a}`);
 })
 
