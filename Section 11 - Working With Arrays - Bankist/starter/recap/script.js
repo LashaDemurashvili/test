@@ -1,4 +1,5 @@
 // Data
+
 const account0 = {
     owner: 'Lasha Demurashvili',
     movements: [10000, 250, -270, 30, -150, -1130, -270, -100, 1000, 2000, 3000, 70],
@@ -711,19 +712,35 @@ const {deposit, withdrawal} = accounts
 console.log(deposit);
 console.log(withdrawal);
 
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
  */
 
+// ------------------------------------------------------------------------------------------------------------ NEW LINE
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// 4.
+// Example:  this is a nice title -> This Is a Nice Title
+
+const convertTitleCase = function (text) {
+    const capitalize = word => word[0].toUpperCase() + word.slice(1)
+
+    const exceptions = ['a', 'an', 'and', 'the', 'but', 'or', 'on', 'in', 'with'];
+
+    const titleCase = text
+        .toLowerCase()
+        .split(' ')
+        .map(each_word => (exceptions.includes(each_word) ? each_word : capitalize(each_word)))
+        .join(' ');
+
+    return capitalize(titleCase);
+};
 
 
-
-
-
-
-
-
+console.log(convertTitleCase('this is a nice title'));
+console.log(convertTitleCase('this is a LONG title but not too long'));
+console.log(convertTitleCase('and here is another title with an EXAMPLE'));
 
 
 // template
