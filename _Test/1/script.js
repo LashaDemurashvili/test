@@ -71,6 +71,8 @@ butt1.addEventListener('click', function(){
     const url_a = 'https://' + web_arr[fir]
     // window.open(url_a, '_blanck')
 
+    
+    document.querySelector('.href--class').href = url_a 
     document.querySelector('.txt').textContent = colorFunc(cur)
     console.log(`${fir} - ${url_a}`);
 })
