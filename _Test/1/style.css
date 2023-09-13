@@ -44,3 +44,23 @@ h1 {
     background-color: red;
     border-radius: 20%;
 }
+
+.span--text{
+    color: red;
+    text-decoration: underline;
+    font-style: italic;
+    
+}
+
+
+.y {
+    color:red
+}
+
+.t {
+    color:rgb(1, 22, 142)
+}
+
+.g {
+    color:rgb(0, 134, 31)
+}
