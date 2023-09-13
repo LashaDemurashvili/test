@@ -65,3 +65,14 @@ h1 {
 .g {
     color:rgb(0, 134, 31)
 }
+
+.btn{
+    border-radius: 10px;
+    margin: 10px;
+    width: 200px;
+    height: 70px;
+}
+
+.btn:active{
+    background-color: #28b487;
+}

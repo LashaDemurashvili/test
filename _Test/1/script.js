@@ -93,12 +93,12 @@ butt2.addEventListener('click', function(){
     // }
     let s_of_p = 0;
     Object.entries(obj).forEach(([key, value]) => {
-        const percentage = Math.round(value/sum*100);
+        const percentage = (value/sum*100);
         s_of_p += percentage;
-        console.log(`${key} - ${percentage}%`);
+        console.log(`${key} - ${percentage.toFixed()}%`);
     });
     
-    console.log(`Total - ${s_of_p}%`);
+    console.log(`Total - ${Math.round(s_of_p)}%`);
 
 });
 
