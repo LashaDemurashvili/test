@@ -728,8 +728,10 @@ const convertTitleCase = function (text) {
     const capitalize = word => word[0].toUpperCase() + word.slice(1)
 
     const exceptions = ['a', 'an', 'and', 'the', 'but', 'or', 'on', 'in', 'with'];
+    
+    let cleanedStr = text.replace(/\s+/g, ' ')
 
-    const titleCase = text
+    const titleCase = cleanedStr
         .toLowerCase()
         .split(' ')
         .map(each_word => (exceptions.includes(each_word) ? each_word : capitalize(each_word)))
@@ -742,6 +744,13 @@ const convertTitleCase = function (text) {
 console.log(convertTitleCase('this is a nice title'));
 console.log(convertTitleCase('this is a LONG title but not too long'));
 console.log(convertTitleCase('and here is another title with an EXAMPLE'));
+
+console.log(convertTitleCase('and hello, this is TEST text'));
+
+
+
+
+
 
 
 
